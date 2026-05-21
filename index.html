@@ -1,0 +1,1398 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cherry BonBon ✨ Luxury Gaming Clouds</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --rose: #f9c6d0;
+    --rose-deep: #f0a0b8;
+    --pink-soft: #fde8ee;
+    --pink-pale: #fff5f8;
+    --cherry: #c0385a;
+    --cherry-dark: #8b1a35;
+    --gold: #d4a853;
+    --gold-light: #f0d9a0;
+    --cream: #fdf6f0;
+    --white: #ffffff;
+    --text-dark: #3a1a28;
+    --text-mid: #7a4a5a;
+    --text-light: #b08090;
+    --shadow-soft: 0 8px 40px rgba(192,56,90,0.10);
+    --shadow-card: 0 4px 30px rgba(192,56,90,0.13);
+  }
+
+- { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+font-family: ‘Lato’, sans-serif;
+background: var(–pink-pale);
+color: var(–text-dark);
+overflow-x: hidden;
+}
+
+/* ─── FLOATING DECORATIONS ─── */
+.deco-float {
+position: fixed;
+pointer-events: none;
+z-index: 0;
+opacity: 0.18;
+font-size: 2rem;
+animation: floatY 7s ease-in-out infinite;
+}
+.deco-float:nth-child(2) { animation-duration: 9s; animation-delay: -3s; }
+.deco-float:nth-child(3) { animation-duration: 11s; animation-delay: -6s; }
+@keyframes floatY {
+0%,100% { transform: translateY(0px) rotate(-5deg); }
+50% { transform: translateY(-18px) rotate(5deg); }
+}
+.df1 { top: 10%; left: 3%; }
+.df2 { top: 40%; right: 2%; }
+.df3 { bottom: 20%; left: 5%; }
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(–pink-soft); }
+::-webkit-scrollbar-thumb { background: var(–rose-deep); border-radius: 3px; }
+
+/* ─── NAV ─── */
+nav {
+position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+background: rgba(253,246,240,0.90);
+backdrop-filter: blur(14px);
+padding: 0 40px;
+height: 64px;
+display: flex; align-items: center; justify-content: space-between;
+border-bottom: 1px solid rgba(240,160,184,0.25);
+box-shadow: 0 2px 20px rgba(192,56,90,0.07);
+}
+.nav-logo {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1.6rem;
+font-weight: 500;
+color: var(–cherry);
+letter-spacing: 0.04em;
+text-decoration: none;
+}
+.nav-logo span { color: var(–gold); }
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a {
+font-family: ‘Lato’, sans-serif;
+font-size: 0.78rem;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+color: var(–text-mid);
+text-decoration: none;
+transition: color 0.3s;
+}
+.nav-links a:hover { color: var(–cherry); }
+.nav-cta {
+background: var(–cherry);
+color: white !important;
+padding: 8px 20px !important;
+border-radius: 50px;
+transition: background 0.3s, transform 0.2s !important;
+}
+.nav-cta:hover { background: var(–cherry-dark) !important; transform: translateY(-1px) !important; }
+
+/* ─── HERO ─── */
+.hero {
+min-height: 100vh;
+display: flex; align-items: center;
+position: relative;
+overflow: hidden;
+padding-top: 64px;
+}
+.hero-bg {
+position: absolute; inset: 0;
+background: radial-gradient(ellipse 80% 70% at 60% 40%, #fde8ee 0%, #fff5f8 55%, #fdf6f0 100%);
+}
+.hero-bg::before {
+content: ‘’;
+position: absolute; inset: 0;
+background:
+radial-gradient(circle 300px at 80% 20%, rgba(249,198,208,0.5) 0%, transparent 70%),
+radial-gradient(circle 200px at 10% 80%, rgba(212,168,83,0.12) 0%, transparent 60%);
+}
+/* Petal decorations */
+.petal {
+position: absolute;
+border-radius: 50% 0 50% 0;
+opacity: 0.12;
+animation: floatPetal 12s ease-in-out infinite;
+}
+.p1 { width:80px; height:80px; background:var(–rose-deep); top:15%; left:12%; animation-delay:-2s; }
+.p2 { width:50px; height:50px; background:var(–cherry); top:65%; left:8%; animation-delay:-5s; transform:rotate(45deg); }
+.p3 { width:120px; height:120px; background:var(–gold); top:25%; right:8%; animation-delay:-8s; border-radius:0 50% 0 50%; }
+.p4 { width:60px; height:60px; background:var(–rose-deep); bottom:20%; right:15%; animation-delay:-3s; }
+@keyframes floatPetal {
+0%,100% { transform: translate(0,0) rotate(0deg); }
+33% { transform: translate(10px,-15px) rotate(10deg); }
+66% { transform: translate(-8px,8px) rotate(-5deg); }
+}
+
+.hero-inner {
+position: relative; z-index: 2;
+display: grid; grid-template-columns: 1fr 1fr;
+align-items: center;
+max-width: 1200px; margin: 0 auto;
+padding: 60px 40px;
+gap: 60px;
+}
+.hero-text { }
+.hero-eyebrow {
+font-family: ‘Lato’, sans-serif;
+font-size: 0.72rem;
+letter-spacing: 0.25em;
+text-transform: uppercase;
+color: var(–gold);
+margin-bottom: 16px;
+display: flex; align-items: center; gap: 10px;
+}
+.hero-eyebrow::before, .hero-eyebrow::after {
+content: ‘’; flex: none;
+width: 30px; height: 1px;
+background: var(–gold);
+display: inline-block;
+}
+.hero-title {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: clamp(2.8rem, 5vw, 4.5rem);
+font-weight: 300;
+line-height: 1.15;
+color: var(–cherry-dark);
+margin-bottom: 10px;
+}
+.hero-title em {
+font-style: italic;
+color: var(–cherry);
+font-weight: 400;
+}
+.hero-subtitle {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1.25rem;
+font-weight: 300;
+font-style: italic;
+color: var(–text-mid);
+margin-bottom: 28px;
+line-height: 1.6;
+}
+.hero-tags {
+display: flex; flex-wrap: wrap; gap: 8px;
+margin-bottom: 36px;
+}
+.tag {
+font-size: 0.72rem;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+padding: 6px 16px;
+border-radius: 50px;
+background: white;
+color: var(–cherry);
+border: 1px solid var(–rose);
+font-family: ‘Lato’, sans-serif;
+}
+.tag.gold { background: var(–gold-light); border-color: var(–gold); color: var(–cherry-dark); }
+
+.hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+.btn-primary {
+background: var(–cherry);
+color: white;
+padding: 14px 32px;
+border-radius: 50px;
+text-decoration: none;
+font-family: ‘Lato’, sans-serif;
+font-size: 0.82rem;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+transition: all 0.3s;
+box-shadow: 0 6px 24px rgba(192,56,90,0.3);
+}
+.btn-primary:hover { background: var(–cherry-dark); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(192,56,90,0.4); }
+.btn-secondary {
+background: transparent;
+color: var(–cherry);
+padding: 14px 32px;
+border-radius: 50px;
+text-decoration: none;
+font-family: ‘Lato’, sans-serif;
+font-size: 0.82rem;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+border: 1.5px solid var(–rose-deep);
+transition: all 0.3s;
+}
+.btn-secondary:hover { border-color: var(–cherry); background: var(–pink-soft); }
+
+.hero-image {
+display: flex; justify-content: center; align-items: center;
+position: relative;
+}
+.hero-img-frame {
+width: 380px; height: 480px;
+border-radius: 200px 200px 180px 180px;
+overflow: hidden;
+position: relative;
+box-shadow: 0 20px 70px rgba(192,56,90,0.22);
+border: 3px solid rgba(249,198,208,0.6);
+}
+.hero-img-frame img {
+width: 100%; height: 100%;
+object-fit: cover;
+}
+.hero-img-frame::after {
+content: ‘’;
+position: absolute; inset: 0;
+background: linear-gradient(to bottom, transparent 60%, rgba(192,56,90,0.15) 100%);
+}
+.hero-img-badge {
+position: absolute;
+bottom: -15px; right: -20px;
+background: white;
+border: 2px solid var(–rose);
+border-radius: 20px;
+padding: 12px 18px;
+box-shadow: var(–shadow-soft);
+text-align: center;
+font-family: ‘Cormorant Garamond’, serif;
+}
+.hero-img-badge .num { font-size: 1.8rem; font-weight: 700; color: var(–cherry); line-height: 1; }
+.hero-img-badge .lab { font-size: 0.68rem; color: var(–text-light); letter-spacing: 0.1em; font-family: ‘Lato’, sans-serif; }
+.hero-img-badge2 {
+position: absolute;
+top: 30px; left: -25px;
+background: var(–cherry);
+border-radius: 50px;
+padding: 10px 16px;
+box-shadow: 0 4px 20px rgba(192,56,90,0.35);
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 0.88rem;
+color: white;
+font-style: italic;
+}
+
+/* ─── SECTION SHARED ─── */
+.section { padding: 90px 40px; position: relative; }
+.section-header { text-align: center; margin-bottom: 60px; }
+.section-eyebrow {
+font-size: 0.72rem;
+letter-spacing: 0.25em;
+text-transform: uppercase;
+color: var(–gold);
+margin-bottom: 12px;
+font-family: ‘Lato’, sans-serif;
+}
+.section-title {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: clamp(2rem, 3.5vw, 3rem);
+font-weight: 300;
+color: var(–cherry-dark);
+line-height: 1.2;
+}
+.section-title em { font-style: italic; color: var(–cherry); }
+.section-line {
+width: 60px; height: 2px;
+background: linear-gradient(to right, var(–rose), var(–cherry), var(–rose));
+margin: 18px auto 0;
+}
+
+/* ─── ABOUT SECTION ─── */
+.about-section { background: white; }
+.about-grid {
+max-width: 1100px; margin: 0 auto;
+display: grid; grid-template-columns: 1fr 1fr;
+gap: 60px; align-items: start;
+}
+.about-text h3 {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1.5rem;
+font-weight: 400;
+color: var(–cherry-dark);
+margin-bottom: 16px;
+}
+.about-text p {
+font-size: 0.95rem;
+line-height: 1.85;
+color: var(–text-mid);
+margin-bottom: 16px;
+}
+.about-highlight {
+background: var(–pink-soft);
+border-left: 3px solid var(–cherry);
+padding: 16px 20px;
+border-radius: 0 12px 12px 0;
+margin: 20px 0;
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1.1rem;
+font-style: italic;
+color: var(–cherry-dark);
+}
+.features-grid {
+display: grid; grid-template-columns: 1fr 1fr;
+gap: 16px;
+}
+.feature-card {
+background: var(–pink-pale);
+border: 1px solid var(–rose);
+border-radius: 16px;
+padding: 20px;
+text-align: center;
+transition: transform 0.3s, box-shadow 0.3s;
+}
+.feature-card:hover { transform: translateY(-4px); box-shadow: var(–shadow-card); }
+.feature-icon { font-size: 1.8rem; margin-bottom: 10px; }
+.feature-card h4 {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1rem;
+color: var(–cherry-dark);
+margin-bottom: 6px;
+}
+.feature-card p { font-size: 0.78rem; color: var(–text-light); line-height: 1.5; }
+
+/* ─── HOW IT WORKS ─── */
+.how-section { background: var(–pink-pale); }
+.steps-row {
+max-width: 900px; margin: 0 auto;
+display: grid; grid-template-columns: repeat(4, 1fr);
+gap: 30px; position: relative;
+}
+.steps-row::before {
+content: ‘’;
+position: absolute;
+top: 30px; left: 10%; right: 10%;
+height: 1px;
+background: linear-gradient(to right, transparent, var(–rose-deep), transparent);
+}
+.step-item { text-align: center; position: relative; }
+.step-num {
+width: 60px; height: 60px;
+background: white;
+border: 2px solid var(–rose-deep);
+border-radius: 50%;
+display: flex; align-items: center; justify-content: center;
+margin: 0 auto 16px;
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1.4rem;
+color: var(–cherry);
+box-shadow: 0 4px 20px rgba(192,56,90,0.12);
+position: relative; z-index: 1;
+background: white;
+}
+.step-item h4 {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1rem;
+color: var(–cherry-dark);
+margin-bottom: 8px;
+}
+.step-item p { font-size: 0.78rem; color: var(–text-light); line-height: 1.6; }
+
+/* ─── CLOUDS / PRODUCTS ─── */
+.clouds-section { background: white; }
+.clouds-intro {
+max-width: 700px; margin: 0 auto 50px;
+text-align: center;
+font-size: 0.9rem;
+color: var(–text-mid);
+line-height: 1.8;
+}
+.tier-label {
+text-align: center;
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1.1rem;
+font-style: italic;
+color: var(–text-light);
+margin: 0 auto 24px;
+display: flex; align-items: center; gap: 16px; justify-content: center;
+max-width: 600px;
+}
+.tier-label::before, .tier-label::after {
+content: ‘’; flex: 1;
+height: 1px;
+background: linear-gradient(to right, transparent, var(–rose));
+}
+.tier-label.gold-tier { color: var(–gold); }
+.tier-label.gold-tier::before, .tier-label.gold-tier::after {
+background: linear-gradient(to right, transparent, var(–gold));
+}
+.clouds-grid {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 28px;
+max-width: 1100px; margin: 0 auto 50px;
+}
+.clouds-grid.two-col { grid-template-columns: repeat(2, 1fr); max-width: 740px; }
+.clouds-grid.one-col { grid-template-columns: 1fr; max-width: 380px; }
+
+.cloud-card {
+background: var(–pink-pale);
+border: 1.5px solid var(–rose);
+border-radius: 24px;
+padding: 32px 28px;
+position: relative;
+transition: transform 0.3s, box-shadow 0.3s;
+cursor: pointer;
+text-decoration: none;
+display: block;
+overflow: hidden;
+}
+.cloud-card::before {
+content: ‘’;
+position: absolute; top: 0; left: 0; right: 0;
+height: 4px;
+background: linear-gradient(to right, var(–rose), var(–cherry));
+opacity: 0;
+transition: opacity 0.3s;
+}
+.cloud-card:hover { transform: translateY(-6px); box-shadow: var(–shadow-card); border-color: var(–rose-deep); }
+.cloud-card:hover::before { opacity: 1; }
+
+.cloud-card.premium {
+background: linear-gradient(135deg, #fff9f0 0%, #fde8ee 100%);
+border-color: var(–gold-light);
+}
+.cloud-card.premium::before { background: linear-gradient(to right, var(–gold), var(–cherry)); }
+.cloud-card.premium:hover { border-color: var(–gold); }
+
+.cloud-card.bestseller {
+background: linear-gradient(135deg, #fff5f8 0%, #fde8ee 50%, #fff9f0 100%);
+border-color: var(–rose-deep);
+box-shadow: 0 4px 30px rgba(192,56,90,0.12);
+}
+.cloud-card.king {
+background: linear-gradient(135deg, #fff9f0 0%, #fde8ee 40%, #fff9f0 100%);
+border: 2px solid var(–gold);
+box-shadow: 0 8px 40px rgba(212,168,83,0.2);
+}
+.cloud-card.king::before { background: linear-gradient(to right, var(–gold), var(–cherry), var(–gold)); opacity: 1; height: 3px; }
+
+.cloud-badge {
+position: absolute; top: 16px; right: 16px;
+font-size: 0.68rem;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+padding: 4px 12px;
+border-radius: 50px;
+font-family: ‘Lato’, sans-serif;
+}
+.badge-new { background: var(–rose); color: var(–cherry-dark); }
+.badge-best { background: var(–cherry); color: white; }
+.badge-gold { background: var(–gold); color: white; }
+.badge-king { background: linear-gradient(to right, var(–gold), var(–cherry-dark)); color: white; }
+
+.cloud-num {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 0.8rem;
+color: var(–text-light);
+letter-spacing: 0.1em;
+margin-bottom: 6px;
+}
+.cloud-name {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1.35rem;
+font-weight: 500;
+color: var(–cherry-dark);
+margin-bottom: 4px;
+line-height: 1.2;
+}
+.cloud-card.king .cloud-name { color: var(–cherry-dark); font-size: 1.5rem; }
+.cloud-level {
+font-size: 0.75rem;
+color: var(–text-light);
+letter-spacing: 0.08em;
+margin-bottom: 14px;
+font-family: ‘Lato’, sans-serif;
+}
+.cloud-desc {
+font-size: 0.84rem;
+color: var(–text-mid);
+line-height: 1.7;
+margin-bottom: 20px;
+}
+.cloud-status {
+font-size: 0.72rem;
+padding: 3px 10px;
+border-radius: 50px;
+display: inline-block;
+margin-bottom: 16px;
+font-family: ‘Lato’, sans-serif;
+}
+.status-active { background: #e8f9ee; color: #2d7a4a; border: 1px solid #a8ddb8; }
+.status-complete { background: var(–pink-soft); color: var(–cherry); border: 1px solid var(–rose); }
+
+.cloud-price {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 2rem;
+font-weight: 500;
+color: var(–cherry);
+display: flex; align-items: baseline; gap: 4px;
+}
+.cloud-price sup { font-size: 0.9rem; margin-top: 4px; }
+.cloud-price .usd { font-size: 0.8rem; color: var(–text-light); font-family: ‘Lato’, sans-serif; margin-left: 4px; }
+
+.cloud-cta {
+display: inline-flex; align-items: center; gap: 6px;
+margin-top: 16px;
+font-size: 0.75rem;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+color: var(–cherry);
+font-family: ‘Lato’, sans-serif;
+transition: gap 0.2s;
+}
+.cloud-card:hover .cloud-cta { gap: 10px; }
+
+/* ─── INCLUDES ─── */
+.includes-section { background: var(–cream); }
+.includes-inner { max-width: 900px; margin: 0 auto; }
+.includes-grid {
+display: grid; grid-template-columns: repeat(3, 1fr);
+gap: 24px;
+}
+.include-item {
+background: white;
+border-radius: 20px;
+padding: 28px 24px;
+border: 1px solid var(–rose);
+text-align: center;
+}
+.include-item .icon { font-size: 2rem; margin-bottom: 12px; }
+.include-item h4 {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1.05rem;
+color: var(–cherry-dark);
+margin-bottom: 8px;
+}
+.include-item p { font-size: 0.8rem; color: var(–text-light); line-height: 1.6; }
+
+/* ─── PAYMENT ─── */
+.payment-section { background: white; }
+.payment-cards {
+display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;
+max-width: 700px; margin: 0 auto;
+}
+.pay-card {
+flex: 1; min-width: 260px;
+background: var(–pink-pale);
+border: 1.5px solid var(–rose);
+border-radius: 24px;
+padding: 36px 28px;
+text-align: center;
+transition: transform 0.3s, box-shadow 0.3s;
+}
+.pay-card:hover { transform: translateY(-4px); box-shadow: var(–shadow-card); }
+.pay-icon { font-size: 2.5rem; margin-bottom: 16px; }
+.pay-card h3 {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1.4rem;
+color: var(–cherry-dark);
+margin-bottom: 12px;
+}
+.pay-card p { font-size: 0.82rem; color: var(–text-mid); line-height: 1.7; margin-bottom: 20px; }
+.pay-link {
+display: inline-block;
+background: var(–cherry);
+color: white;
+padding: 11px 24px;
+border-radius: 50px;
+text-decoration: none;
+font-size: 0.78rem;
+letter-spacing: 0.1em;
+text-transform: uppercase;
+font-family: ‘Lato’, sans-serif;
+transition: all 0.3s;
+}
+.pay-link:hover { background: var(–cherry-dark); transform: translateY(-1px); }
+.pay-link.ko { background: var(–rose-deep); }
+.pay-link.ko:hover { background: var(–cherry); }
+
+/* ─── CONTACT ─── */
+.contact-section {
+background: linear-gradient(135deg, var(–cherry-dark) 0%, var(–cherry) 50%, #d4536e 100%);
+position: relative; overflow: hidden;
+}
+.contact-section::before {
+content: ‘’;
+position: absolute; inset: 0;
+background:
+radial-gradient(circle 400px at 20% 50%, rgba(255,255,255,0.06) 0%, transparent 70%),
+radial-gradient(circle 300px at 80% 30%, rgba(212,168,83,0.15) 0%, transparent 60%);
+}
+.contact-inner {
+position: relative; z-index: 2;
+max-width: 700px; margin: 0 auto;
+text-align: center;
+}
+.contact-section .section-eyebrow { color: var(–gold-light); }
+.contact-section .section-title { color: white; }
+.contact-section .section-line { background: linear-gradient(to right, transparent, white, transparent); }
+.contact-links { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
+.contact-link {
+display: flex; align-items: center; gap: 12px;
+background: rgba(255,255,255,0.12);
+backdrop-filter: blur(10px);
+border: 1px solid rgba(255,255,255,0.25);
+border-radius: 16px;
+padding: 20px 30px;
+text-decoration: none;
+color: white;
+transition: all 0.3s;
+}
+.contact-link:hover { background: rgba(255,255,255,0.22); transform: translateY(-3px); }
+.contact-link-icon { font-size: 1.8rem; }
+.contact-link-text { text-align: left; }
+.contact-link-text .label { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.7; font-family: ‘Lato’, sans-serif; }
+.contact-link-text .name { font-family: ‘Cormorant Garamond’, serif; font-size: 1.1rem; }
+.contact-note {
+color: rgba(255,255,255,0.7);
+font-style: italic;
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 1rem;
+margin-top: 30px;
+}
+
+/* ─── FOOTER ─── */
+footer {
+background: var(–cherry-dark);
+padding: 28px 40px;
+text-align: center;
+}
+footer p {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 0.88rem;
+color: rgba(255,255,255,0.5);
+letter-spacing: 0.05em;
+}
+footer a { color: var(–rose); text-decoration: none; }
+
+/* ─── MODAL for Cloud detail ─── */
+.modal-overlay {
+position: fixed; inset: 0; z-index: 1000;
+background: rgba(58,26,40,0.6);
+backdrop-filter: blur(8px);
+display: none; align-items: center; justify-content: center;
+padding: 20px;
+}
+.modal-overlay.open { display: flex; }
+.modal {
+background: white;
+border-radius: 28px;
+max-width: 700px; width: 100%;
+max-height: 88vh;
+overflow-y: auto;
+box-shadow: 0 30px 80px rgba(192,56,90,0.25);
+position: relative;
+animation: modalIn 0.35s cubic-bezier(0.34,1.56,0.64,1);
+}
+@keyframes modalIn {
+from { opacity:0; transform: scale(0.9) translateY(20px); }
+to { opacity:1; transform: scale(1) translateY(0); }
+}
+.modal-close {
+position: sticky; top: 0; left: 0; right: 0;
+background: white;
+padding: 18px 24px 0;
+display: flex; justify-content: flex-end;
+z-index: 2;
+}
+.modal-close button {
+background: var(–pink-soft);
+border: none;
+width: 36px; height: 36px;
+border-radius: 50%;
+cursor: pointer;
+font-size: 1.1rem;
+color: var(–cherry);
+transition: background 0.2s;
+display: flex; align-items: center; justify-content: center;
+}
+.modal-close button:hover { background: var(–rose); }
+.modal-body { padding: 10px 36px 36px; }
+.modal-header { margin-bottom: 24px; }
+.modal-num { font-size: 0.72rem; color: var(–text-light); letter-spacing: 0.1em; margin-bottom: 6px; font-family: ‘Lato’, sans-serif; }
+.modal-name {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 2rem;
+font-weight: 500;
+color: var(–cherry-dark);
+margin-bottom: 6px;
+}
+.modal-price {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: 2.5rem;
+color: var(–cherry);
+font-weight: 400;
+}
+.modal-gallery {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+gap: 10px;
+margin: 24px 0;
+}
+.modal-gallery img {
+width: 100%; aspect-ratio: 1;
+object-fit: cover;
+border-radius: 12px;
+cursor: pointer;
+transition: transform 0.3s;
+}
+.modal-gallery img:hover { transform: scale(1.03); }
+.modal-gallery-placeholder {
+aspect-ratio: 1;
+background: var(–pink-soft);
+border-radius: 12px;
+display: flex; align-items: center; justify-content: center;
+font-size: 1.5rem;
+color: var(–rose-deep);
+border: 1.5px dashed var(–rose);
+}
+.modal-desc { font-size: 0.9rem; color: var(–text-mid); line-height: 1.85; margin-bottom: 20px; }
+.modal-features { list-style: none; margin-bottom: 24px; }
+.modal-features li {
+font-size: 0.85rem;
+color: var(–text-mid);
+padding: 7px 0;
+border-bottom: 1px solid var(–pink-soft);
+display: flex; align-items: center; gap: 10px;
+}
+.modal-features li::before { content: ‘🌸’; font-size: 0.7rem; }
+.modal-buy {
+display: inline-block;
+background: var(–cherry);
+color: white;
+padding: 14px 36px;
+border-radius: 50px;
+text-decoration: none;
+font-size: 0.82rem;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+font-family: ‘Lato’, sans-serif;
+transition: all 0.3s;
+box-shadow: 0 6px 24px rgba(192,56,90,0.3);
+}
+.modal-buy:hover { background: var(–cherry-dark); transform: translateY(-2px); }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+nav { padding: 0 20px; }
+.nav-links { display: none; }
+.hero-inner { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+.hero-image { order: -1; }
+.hero-img-frame { width: 280px; height: 350px; }
+.hero-eyebrow { justify-content: center; }
+.hero-btns { justify-content: center; }
+.hero-tags { justify-content: center; }
+.about-grid { grid-template-columns: 1fr; }
+.clouds-grid { grid-template-columns: 1fr 1fr; }
+.clouds-grid.two-col { grid-template-columns: 1fr; max-width: 380px; }
+.includes-grid { grid-template-columns: 1fr 1fr; }
+.steps-row { grid-template-columns: 1fr 1fr; }
+.steps-row::before { display: none; }
+.section { padding: 60px 20px; }
+}
+@media (max-width: 600px) {
+.clouds-grid { grid-template-columns: 1fr; }
+.includes-grid { grid-template-columns: 1fr; }
+.features-grid { grid-template-columns: 1fr; }
+.modal-body { padding: 10px 20px 28px; }
+}
+
+/* ─── ANIMATIONS ─── */
+.fade-up {
+opacity: 0;
+transform: translateY(30px);
+transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-up.visible {
+opacity: 1;
+transform: translateY(0);
+}
+
+/* ─── IMPORTANCE NOTICE ─── */
+.notice-bar {
+background: linear-gradient(to right, var(–rose), var(–pink-soft), var(–rose));
+text-align: center;
+padding: 10px 20px;
+font-size: 0.8rem;
+color: var(–cherry-dark);
+letter-spacing: 0.08em;
+font-family: ‘Lato’, sans-serif;
+border-bottom: 1px solid var(–rose);
+margin-top: 64px;
+}
+</style>
+
+</head>
+<body>
+
+<!-- Floating decor -->
+
+<div class="deco-float df1">🌸</div>
+<div class="deco-float df2">🍒</div>
+<div class="deco-float df3">☁️</div>
+
+<!-- NAV -->
+
+<nav>
+  <a href="#" class="nav-logo">Cherry <span>BonBon</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#clouds">Clouds</a></li>
+    <li><a href="#includes">Includes</a></li>
+    <li><a href="#payment">Payment</a></li>
+    <li><a href="#contact" class="nav-cta">Contact 🍒</a></li>
+  </ul>
+</nav>
+
+<!-- Notice bar -->
+
+<div class="notice-bar">
+  ✨ All clouds include VIP 15 status &nbsp;·&nbsp; 2.1B social points &nbsp;·&nbsp; Years of gameplay already completed &nbsp;·&nbsp; iOS & Android compatible ✨
+</div>
+
+<!-- ═══════════════════════ HERO ═══════════════════════ -->
+
+<section class="hero">
+  <div class="hero-bg">
+    <div class="petal p1"></div>
+    <div class="petal p2"></div>
+    <div class="petal p3"></div>
+    <div class="petal p4"></div>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-text fade-up">
+      <p class="hero-eyebrow">Luxury Gaming Clouds</p>
+      <h1 class="hero-title">
+        Cherry<br><em>BonBon</em>
+      </h1>
+      <p class="hero-subtitle">
+        Fully upgraded Sims FreePlay accounts —<br>
+        years of progression, ready to play.
+      </p>
+      <div class="hero-tags">
+        <span class="tag">✨ Luxury Collection</span>
+        <span class="tag gold">👑 VIP 15 Status</span>
+        <span class="tag">🎮 iOS & Android</span>
+        <span class="tag">💎 11–13 Years Built</span>
+      </div>
+      <div class="hero-btns">
+        <a href="#clouds" class="btn-primary">☁️ View All Clouds</a>
+        <a href="#about" class="btn-secondary">Learn More</a>
+      </div>
+    </div>
+    <div class="hero-image fade-up" style="transition-delay:0.2s">
+      <div style="position:relative">
+        <div class="hero-img-frame">
+          <!-- Replace src with your character image URL -->
+          <img src="https://cdn.openart.ai/openart-ai/production/2026-05/create-image/I8763HZzjwVFkTZdBgR3/image_1779284809356_21582abd_1779284810229_3396db6b.png" alt="Cherry BonBon" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22380%22 height=%22480%22><rect fill=%22%23fde8ee%22 width=%22380%22 height=%22480%22/><text y=%22240%22 x=%22190%22 text-anchor=%22middle%22 font-size=%2280%22>🍒</text></svg>'">
+        </div>
+        <div class="hero-img-badge">
+          <div class="num">9</div>
+          <div class="lab">Unique Clouds</div>
+        </div>
+        <div class="hero-img-badge2">✨ Ready to Play</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ ABOUT ═══════════════════════ -->
+
+<section class="about-section section" id="about">
+  <div class="section-header fade-up">
+    <p class="section-eyebrow">What is a Gaming Cloud?</p>
+    <h2 class="section-title">Years of Gameplay,<br><em>Ready for You</em></h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="about-grid">
+    <div class="about-text fade-up">
+      <h3>Welcome to Cherry BonBon ✨</h3>
+      <p>A gaming cloud is a fully ready-to-play Sims FreePlay game account. Each cloud is different and unique in its in-game content — from collections of purchased online packs to exclusive event items and one-of-a-kind built houses not available anywhere else.</p>
+      <div class="about-highlight">
+        "All Game Clouds were originally created around 2012–2013 and have been actively built and enriched with content for 11–13 years 💕"
+      </div>
+      <p>Some clouds continue to receive active updates to this day — especially the premium ones 👑. Others have a complete, fixed collection that stopped updating — but are still incredibly rich in content!</p>
+      <p>The best clouds in the collection contain up to <strong>95% of ALL ever released in-game content</strong> — both paid and free, from online packs and time-limited events.</p>
+    </div>
+    <div class="fade-up" style="transition-delay:0.15s">
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">💎</div>
+          <h4>Premium Investment</h4>
+          <p>Each account represents $6,000–$8,000 in real purchases of online packs</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">👑</div>
+          <h4>VIP 15 Status</h4>
+          <p>Maximum VIP level with 12.88M daily city rewards</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🏠</div>
+          <h4>Unique Builds</h4>
+          <p>Exclusive custom-built houses not available anywhere else</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🌸</div>
+          <h4>All Hobbies Done</h4>
+          <p>Every hobby, event, and task already fully completed</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ HOW IT WORKS ═══════════════════════ -->
+
+<section class="how-section section" id="how">
+  <div class="section-header fade-up">
+    <p class="section-eyebrow">Simple Process</p>
+    <h2 class="section-title">How It <em>Works</em></h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="steps-row">
+    <div class="step-item fade-up">
+      <div class="step-num">1</div>
+      <h4>Choose Your Cloud</h4>
+      <p>Browse the collection and pick the cloud that matches your style and budget</p>
+    </div>
+    <div class="step-item fade-up" style="transition-delay:0.1s">
+      <div class="step-num">2</div>
+      <h4>Make Payment</h4>
+      <p>Pay securely via PayPal or Ko-fi — no account needed for Ko-fi</p>
+    </div>
+    <div class="step-item fade-up" style="transition-delay:0.2s">
+      <div class="step-num">3</div>
+      <h4>Receive Details</h4>
+      <p>Get your dummy Facebook login credentials with step-by-step setup guide</p>
+    </div>
+    <div class="step-item fade-up" style="transition-delay:0.3s">
+      <div class="step-num">4</div>
+      <h4>Start Playing ✨</h4>
+      <p>Log in on your iOS or Android device and enjoy your fully built world!</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ CLOUDS ═══════════════════════ -->
+
+<section class="clouds-section section" id="clouds">
+  <div class="section-header fade-up">
+    <p class="section-eyebrow">The Collection</p>
+    <h2 class="section-title">Choose Your <em>Dream Cloud</em></h2>
+    <div class="section-line"></div>
+  </div>
+  <p class="clouds-intro fade-up">
+    Each gaming cloud is a unique world, hand-crafted over years. Click any cloud to explore its full details, gallery, and features.
+  </p>
+
+  <!-- ENTRY COLLECTION -->
+
+  <div class="tier-label fade-up">👾 Entry Collection — Creative Worlds</div>
+  <div class="clouds-grid" style="max-width:1100px;margin:0 auto 50px">
+    <a class="cloud-card" href="#" onclick="openCloud(0); return false;">
+      <div class="cloud-num">Cloud № 1</div>
+      <div class="cloud-name">Empty Game Cloud</div>
+      <div class="cloud-level">Game Level 65 · Up to 46 Sims</div>
+      <div class="cloud-desc">A pure blank world designed for complete creative freedom. Start from zero and build your dream city exactly the way you imagine it.</div>
+      <span class="cloud-status status-complete">✓ Complete Collection</span>
+      <div class="cloud-price"><sup>$</sup>16<span class="usd">USD</span></div>
+      <span class="cloud-cta">Explore Cloud →</span>
+    </a>
+    <a class="cloud-card" href="#" onclick="openCloud(1); return false;">
+      <div class="cloud-num">Cloud № 2</div>
+      <div class="cloud-name">Gamer Dream Cloud</div>
+      <div class="cloud-level">Game Level 65 · Up to 46 Sims</div>
+      <div class="cloud-desc">A cozy gaming-inspired world filled with fun builds and creative energy. Jump in and start playing instantly in a vibrant, playful environment 🎮✨</div>
+      <span class="cloud-status status-complete">✓ Complete Collection</span>
+      <div class="cloud-price"><sup>$</sup>25<span class="usd">USD</span></div>
+      <span class="cloud-cta">Explore Cloud →</span>
+    </a>
+    <a class="cloud-card" href="#" onclick="openCloud(2); return false;">
+      <div class="cloud-num">Cloud № 3</div>
+      <div class="cloud-name">Barbie Dream Cloud</div>
+      <div class="cloud-level">Game Level 65 · Up to 46 Sims</div>
+      <div class="cloud-desc">A luxurious pink paradise inspired by Barbie aesthetics. Elegant homes, soft glam details, and a world designed for beauty, style, and imagination 💕✨</div>
+      <span class="cloud-status status-complete">✓ Complete Collection</span>
+      <div class="cloud-price"><sup>$</sup>25<span class="usd">USD</span></div>
+      <span class="cloud-cta">Explore Cloud →</span>
+    </a>
+    <a class="cloud-card" href="#" onclick="openCloud(3); return false;">
+      <div class="cloud-num">Cloud № 4</div>
+      <div class="cloud-name">Barbie & Gamer Cloud</div>
+      <div class="cloud-level">Game Level 65 · Up to 46 Sims</div>
+      <div class="cloud-desc">A unique fusion of glam and gaming energy. Bright Barbie-inspired luxury meets fun interactive builds for a stylish and modern gameplay experience 💖🎮</div>
+      <span class="cloud-status status-complete">✓ Complete Collection</span>
+      <div class="cloud-price"><sup>$</sup>30<span class="usd">USD</span></div>
+      <span class="cloud-cta">Explore Cloud →</span>
+    </a>
+    <a class="cloud-card" href="#" onclick="openCloud(4); return false;">
+      <div class="cloud-num">Cloud № 5</div>
+      <div class="cloud-name">Paradise Dream Cloud</div>
+      <div class="cloud-level">Game Level 65 · Up to 46 Sims</div>
+      <div class="cloud-desc">A premium aesthetic world with curated builds and exclusive details. Designed for players who want a more refined, stylish, and cozy gameplay experience 🍒✨</div>
+      <span class="cloud-status status-complete">✓ Complete Collection</span>
+      <div class="cloud-price"><sup>$</sup>35<span class="usd">USD</span></div>
+      <span class="cloud-cta">Explore Cloud →</span>
+    </a>
+  </div>
+
+  <!-- PREMIUM VIP COLLECTION -->
+
+  <div class="tier-label gold-tier fade-up">👑 75 MAX Collection — Premium VIP Clouds</div>
+  <div class="clouds-grid" style="max-width:1100px;margin:0 auto 20px">
+    <a class="cloud-card premium" href="#" onclick="openCloud(5); return false;">
+      <span class="cloud-badge badge-gold">✦ Golden</span>
+      <div class="cloud-num">Cloud № 6</div>
+      <div class="cloud-name">Empty Golden Cloud</div>
+      <div class="cloud-level">Game Level 75 MAX · Up to 53 Sims</div>
+      <div class="cloud-desc">A powerful blank VIP world with a massive collection of online packs and event items. Total freedom to design everything your own way.</div>
+      <span class="cloud-status status-complete">✓ Complete Collection</span>
+      <div class="cloud-price"><sup>$</sup>33<span class="usd">USD</span></div>
+      <span class="cloud-cta">Explore Cloud →</span>
+    </a>
+    <a class="cloud-card bestseller" href="#" onclick="openCloud(6); return false;">
+      <span class="cloud-badge badge-best">🔥 Best Seller</span>
+      <div class="cloud-num">Cloud № 7</div>
+      <div class="cloud-name">Platinum VIP Cloud</div>
+      <div class="cloud-level">Game Level 75 MAX · Up to 53 Sims</div>
+      <div class="cloud-desc">A high-tier VIP collection with continuously updated premium content and one of the richest item libraries available. The perfect balance of freedom and exclusive resources.</div>
+      <span class="cloud-status status-active">✅ Actively Updated</span>
+      <div class="cloud-price"><sup>$</sup>45<span class="usd">USD</span></div>
+      <span class="cloud-cta">Explore Cloud →</span>
+    </a>
+    <a class="cloud-card bestseller" href="#" onclick="openCloud(7); return false;">
+      <span class="cloud-badge badge-best">🔥 Best Seller</span>
+      <div class="cloud-num">Cloud № 8</div>
+      <div class="cloud-name">Diamond Elite Cloud</div>
+      <div class="cloud-level">Game Level 75 MAX · Up to 53 Sims</div>
+      <div class="cloud-desc">A luxurious world filled with exclusive custom-built homes, rare event collections, and premium online packs. A highly curated experience for collectors and perfectionists 💎✨</div>
+      <span class="cloud-status status-active">✅ Actively Updated</span>
+      <div class="cloud-price"><sup>$</sup>55<span class="usd">USD</span></div>
+      <span class="cloud-cta">Explore Cloud →</span>
+    </a>
+  </div>
+
+  <!-- KING CLOUD -->
+
+  <div style="max-width:420px;margin:30px auto 0">
+    <a class="cloud-card king" href="#" onclick="openCloud(8); return false;">
+      <span class="cloud-badge badge-king">👑 THE KING</span>
+      <div class="cloud-num">Cloud № 9 · Ultimate</div>
+      <div class="cloud-name">Royal Supreme MAX</div>
+      <div class="cloud-level">Game Level 75 MAX · Up to 53 Sims</div>
+      <div class="cloud-desc">The ultimate Cherry BonBon experience. The most complete and premium cloud with the largest collection of purchased online packs, exclusive buildings, rare event items, and continuously updated content. Unmatched in depth and value 👑💎</div>
+      <span class="cloud-status status-active">✅ Actively Updated</span>
+      <div class="cloud-price"><sup>$</sup>85<span class="usd">USD</span></div>
+      <span class="cloud-cta">Explore Cloud →</span>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════════════════ INCLUDES ═══════════════════════ -->
+
+<section class="includes-section section" id="includes">
+  <div class="section-header fade-up">
+    <p class="section-eyebrow">Every Cloud</p>
+    <h2 class="section-title">Everything <em>Included</em></h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="includes-inner">
+    <div class="includes-grid">
+      <div class="include-item fade-up">
+        <div class="icon">👑</div>
+        <h4>VIP 15 Status</h4>
+        <p>Maximum VIP level with 12.88 million daily city rewards</p>
+      </div>
+      <div class="include-item fade-up" style="transition-delay:0.05s">
+        <div class="icon">✨</div>
+        <h4>2.1B Points</h4>
+        <p>2.1 billion social and lifestyle points already accumulated</p>
+      </div>
+      <div class="include-item fade-up" style="transition-delay:0.1s">
+        <div class="icon">🏆</div>
+        <h4>All Tasks Done</h4>
+        <p>All hobbies, time-limited events, and level-required tasks fully completed</p>
+      </div>
+      <div class="include-item fade-up" style="transition-delay:0.15s">
+        <div class="icon">🎁</div>
+        <h4>All Prizes Collected</h4>
+        <p>All available prizes already collected — ready for new content</p>
+      </div>
+      <div class="include-item fade-up" style="transition-delay:0.2s">
+        <div class="icon">🔑</div>
+        <h4>Mystery Box Keys</h4>
+        <p>Mystery box keys and Platinum life orbs included</p>
+      </div>
+      <div class="include-item fade-up" style="transition-delay:0.25s">
+        <div class="icon">📱</div>
+        <h4>iOS & Android</h4>
+        <p>Works perfectly on all devices with full setup assistance included</p>
+      </div>
+    </div>
+    <div class="about-highlight fade-up" style="max-width:600px;margin:36px auto 0;text-align:center">
+      ⚠️ A gaming cloud is a fully upgraded account. To keep your current game, simply use a second Facebook account or second device 😊
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════ PAYMENT ═══════════════════════ -->
+
+<section class="payment-section section" id="payment">
+  <div class="section-header fade-up">
+    <p class="section-eyebrow">Secure Payment</p>
+    <h2 class="section-title">Easy <em>Checkout</em></h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="payment-cards">
+    <div class="pay-card fade-up">
+      <div class="pay-icon">💙</div>
+      <h3>PayPal</h3>
+      <p>Send payment to <strong>morgannfolly@gmail.com</strong><br>
+      (You'll see the name Morgann Folly — that's the right one! ☺️)</p>
+      <a href="https://paypal.me/blackcodeblackness" target="_blank" class="pay-link">Pay via PayPal</a>
+    </div>
+    <div class="pay-card fade-up" style="transition-delay:0.1s">
+      <div class="pay-icon">🩷</div>
+      <h3>Ko-fi</h3>
+      <p>No account needed! Pay directly with Visa or Mastercard. Click the link, enter the amount, click "Tip", then enter your card details.</p>
+      <a href="https://ko-fi.com/cherrybonbon555" target="_blank" class="pay-link ko">Pay via Ko-fi</a>
+    </div>
+  </div>
+  <p style="text-align:center;margin-top:28px;font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--text-light);font-size:0.95rem">
+    💬 Not sure which cloud is right for you? DM me and I'll help you find your perfect match! 🍒☁️
+  </p>
+</section>
+
+<!-- ═══════════════════════ CONTACT ═══════════════════════ -->
+
+<section class="contact-section section" id="contact">
+  <div class="contact-inner">
+    <div class="section-header">
+      <p class="section-eyebrow">Get in Touch</p>
+      <h2 class="section-title">Let's <em>Connect</em></h2>
+      <div class="section-line"></div>
+    </div>
+    <p style="color:rgba(255,255,255,0.8);font-size:0.92rem;line-height:1.8;margin-top:-20px">
+      Have questions? Want to know which cloud suits you best? Reach out on Facebook or support via Ko-fi. I'm always happy to help! 🍒
+    </p>
+    <div class="contact-links">
+      <a href="https://www.facebook.com/PeggyDessert" target="_blank" class="contact-link">
+        <span class="contact-link-icon">📘</span>
+        <div class="contact-link-text">
+          <div class="label">Facebook Business Page</div>
+          <div class="name">Peggy Dessert</div>
+        </div>
+      </a>
+      <a href="https://ko-fi.com/cherrybonbon555" target="_blank" class="contact-link">
+        <span class="contact-link-icon">☕</span>
+        <div class="contact-link-text">
+          <div class="label">Support & Payment</div>
+          <div class="name">Ko-fi · Cherry BonBon</div>
+        </div>
+      </a>
+    </div>
+    <p class="contact-note">✨ Cherry BonBon — where progression meets exclusivity, and every account is already a finished world waiting to be enjoyed. ✨</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+
+<footer>
+  <p>© 2025 Cherry BonBon · Luxury Gaming Clouds · All rights reserved 🍒 · 
+    <a href="https://ko-fi.com/cherrybonbon555">Ko-fi</a> · 
+    <a href="https://paypal.me/blackcodeblackness">PayPal</a>
+  </p>
+</footer>
+
+<!-- ═══════════════════════ MODAL ═══════════════════════ -->
+
+<div class="modal-overlay" id="cloudModal" onclick="if(event.target===this)closeModal()">
+  <div class="modal">
+    <div class="modal-close"><button onclick="closeModal()">✕</button></div>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+const clouds = [
+  {
+    num: "Cloud № 1", name: "Empty Game Cloud", price: "$16",
+    level: "Game Level 65 · Up to 46 Sims",
+    status: "complete",
+    desc: "A pure blank world designed for complete creative freedom. No pre-built houses included — start from zero and build your dream city exactly the way you imagine it. No limits, no restrictions, full control.",
+    features: [
+      "Game Level 65 — max for entry tier",
+      "Up to 46 Sims",
+      "No pre-built houses — blank canvas",
+      "VIP 15 status included",
+      "2.1 billion social & lifestyle points",
+      "All hobbies and events completed",
+      "Complete & fixed collection — no longer updating"
+    ],
+    gallery: []
+  },
+  {
+    num: "Cloud № 2", name: "Gamer Dream Cloud", price: "$25",
+    level: "Game Level 65 · Up to 46 Sims",
+    status: "complete",
+    desc: "A cozy gaming-inspired world filled with fun builds and creative energy. Everything is ready for you to jump in and start playing instantly in a vibrant, playful environment 🎮✨",
+    features: [
+      "Game Level 65 · Up to 46 Sims",
+      "Gaming-themed custom builds",
+      "VIP 15 status included",
+      "Complete & curated collection",
+      "All events and hobbies done"
+    ],
+    gallery: []
+  },
+  {
+    num: "Cloud № 3", name: "Barbie Dream Cloud", price: "$25",
+    level: "Game Level 65 · Up to 46 Sims",
+    status: "complete",
+    desc: "A luxurious pink paradise inspired by Barbie aesthetics. Elegant homes, soft glam details, and a world designed for beauty, style, and imagination 💕✨",
+    features: [
+      "Game Level 65 · Up to 46 Sims",
+      "Pink Barbie-inspired builds and decor",
+      "Luxury outfits & hairstyles collection",
+      "VIP 15 status included",
+      "Complete & curated collection"
+    ],
+    gallery: []
+  },
+  {
+    num: "Cloud № 4", name: "Barbie & Gamer Cloud", price: "$30",
+    level: "Game Level 65 · Up to 46 Sims",
+    status: "complete",
+    desc: "A unique fusion of glam and gaming energy. Bright Barbie-inspired luxury meets fun interactive builds for a stylish and modern gameplay experience 💖🎮",
+    features: [
+      "Game Level 65 · Up to 46 Sims",
+      "Mix of Barbie glam + gaming builds",
+      "VIP 15 status included",
+      "Rich curated inventory",
+      "Complete & fixed collection"
+    ],
+    gallery: []
+  },
+  {
+    num: "Cloud № 5", name: "Paradise Dream Cloud", price: "$35",
+    level: "Game Level 65 · Up to 46 Sims",
+    status: "complete",
+    desc: "A premium aesthetic world with curated builds and exclusive details. Designed for players who want a more refined, stylish, and cozy gameplay experience 🍒✨",
+    features: [
+      "Game Level 65 · Up to 46 Sims",
+      "Premium aesthetic builds",
+      "Exclusive rare items",
+      "VIP 15 status included",
+      "Complete & curated collection"
+    ],
+    gallery: []
+  },
+  {
+    num: "Cloud № 6", name: "Empty Golden Cloud", price: "$33",
+    level: "Game Level 75 MAX · Up to 53 Sims",
+    status: "complete",
+    desc: "A powerful blank VIP world with a massive collection of online packs and event items. No pre-built houses — giving you total freedom to design everything your own way.",
+    features: [
+      "Game Level 75 MAX · Up to 53 Sims",
+      "Massive collection of online packs",
+      "Rich event items library",
+      "No pre-built houses — full creative freedom",
+      "VIP 15 status included",
+      "Complete collection — fixed"
+    ],
+    gallery: []
+  },
+  {
+    num: "Cloud № 7", name: "Platinum VIP Cloud (Empty)", price: "$45",
+    level: "Game Level 75 MAX · Up to 53 Sims",
+    status: "active",
+    desc: "A high-tier VIP collection with continuously updated premium content and one of the richest item libraries available. The perfect balance of freedom and exclusive resources. No pre-built houses included.",
+    features: [
+      "Game Level 75 MAX · Up to 53 Sims",
+      "One of the richest item libraries",
+      "No pre-built houses",
+      "VIP 15 status included",
+      "✅ Actively updated with new content"
+    ],
+    gallery: []
+  },
+  {
+    num: "Cloud № 8", name: "Diamond Elite Cloud", price: "$55",
+    level: "Game Level 75 MAX · Up to 53 Sims",
+    status: "active",
+    desc: "A luxurious world filled with exclusive custom-built homes, rare event collections, and premium online packs. A highly curated experience designed for collectors and perfectionists 💎✨",
+    features: [
+      "Game Level 75 MAX · Up to 53 Sims",
+      "Exclusive custom-built homes",
+      "Rare event item collection",
+      "Premium online packs",
+      "VIP 15 status included",
+      "✅ Actively updated with new content"
+    ],
+    gallery: []
+  },
+  {
+    num: "Cloud № 9 · Ultimate", name: "Royal Supreme MAX", price: "$85",
+    level: "Game Level 75 MAX · Up to 53 Sims",
+    status: "active",
+    desc: "The ultimate Cherry BonBon experience. The most complete and premium cloud with the largest collection of purchased online packs, exclusive buildings, rare event items, and continuously updated content. This is the highest tier available — unmatched in depth and value 👑💎",
+    features: [
+      "Game Level 75 MAX · Up to 53 Sims",
+      "Largest collection of online packs available",
+      "Exclusive premium builds",
+      "Rare & exclusive event items",
+      "VIP 15 status included",
+      "✅ Actively updated with all new content",
+      "$6,000–$8,000 real investment in content"
+    ],
+    gallery: []
+  }
+];
+
+function openCloud(i) {
+  const c = clouds[i];
+  const statusHtml = c.status === 'active'
+    ? '<span class="cloud-status status-active">✅ Actively Updated</span>'
+    : '<span class="cloud-status status-complete">✓ Complete Collection</span>';
+  const galleryHtml = c.gallery.length
+    ? c.gallery.map(src => `<img src="${src}" alt="">`).join('')
+    : [1,2,3,4].map(() => `<div class="modal-gallery-placeholder">🌸</div>`).join('');
+
+  document.getElementById('modalBody').innerHTML = `
+    <div class="modal-header">
+      <div class="modal-num">${c.num}</div>
+      <div class="modal-name">${c.name}</div>
+      <div style="font-size:0.8rem;color:var(--text-light);margin:4px 0 10px;font-family:'Lato',sans-serif">${c.level}</div>
+      ${statusHtml}
+      <div class="modal-price">${c.price} <span style="font-size:1rem;color:var(--text-light);font-family:'Lato',sans-serif">USD</span></div>
+    </div>
+    <p class="modal-desc">${c.desc}</p>
+    <div class="modal-gallery">${galleryHtml}</div>
+    <ul class="modal-features">${c.features.map(f=>`<li>${f}</li>`).join('')}</ul>
+    <a href="https://ko-fi.com/cherrybonbon555" target="_blank" class="modal-buy">🍒 Buy This Cloud</a>
+  `;
+  document.getElementById('cloudModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('cloudModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
+
+// Scroll reveal
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
