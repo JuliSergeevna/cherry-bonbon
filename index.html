@@ -72,7 +72,7 @@ pointer-events: none;
 #clouds-layer {
 position: fixed;
 inset: 0;
-z-index: -1;
+z-index: 9999;
 pointer-events: none;
 overflow: hidden;
 }
@@ -1497,18 +1497,21 @@ requestAnimationFrame(drawStars);
 
 // ─── FLOATING CLOUDS ───
 const cloudLayer = document.getElementById(‘clouds-layer’);
-const cloudData = [
-{top:‘10%’, w:400, h:130, blur:0, dur:50, del:0},
-{top:‘30%’, w:320, h:100, blur:0, dur:65, del:10},
-{top:‘50%’, w:500, h:150, blur:0, dur:45, del:20},
-{top:‘68%’, w:350, h:110, blur:0, dur:58, del:5},
-{top:‘22%’, w:280, h:90, blur:0, dur:72, del:35},
-{top:‘42%’, w:450, h:140, blur:0, dur:40, del:15},
+const cloudEmojis = [
+{top:‘8%’,  dur:50, del:0,  size:‘5rem’},
+{top:‘22%’, dur:70, del:12, size:‘4rem’},
+{top:‘38%’, dur:45, del:25, size:‘6rem’},
+{top:‘52%’, dur:60, del:8,  size:‘4.5rem’},
+{top:‘65%’, dur:55, del:18, size:‘5.5rem’},
+{top:‘78%’, dur:65, del:35, size:‘4rem’},
+{top:‘15%’, dur:80, del:40, size:‘3.5rem’},
+{top:‘45%’, dur:42, del:30, size:‘5rem’},
 ];
 
-cloudData.forEach(c => {
+cloudEmojis.forEach(c => {
 const el = document.createElement(‘div’);
-el.style.cssText = `position:absolute; left:-350px; top:${c.top}; width:${c.w}px; height:${c.h}px; background:white; border-radius:50%; opacity:0; filter:blur(0px); box-shadow: ${c.w*0.35}px -${c.h*0.35}px 0 ${c.h*0.22}px white, ${c.w*0.65}px -${c.h*0.15}px 0 ${c.h*0.18}px white, ${c.w*0.18}px -${c.h*0.45}px 0 ${c.h*0.28}px white; animation: cloudDrift ${c.dur}s linear -${c.del}s infinite; pointer-events:none;`;
+el.style.cssText = ;
+el.textContent = ‘☁️’;
 cloudLayer.appendChild(el);
 });
 </script>
