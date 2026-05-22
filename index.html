@@ -81,13 +81,13 @@ position: absolute;
 border-radius: 50%;
 background: white;
 opacity: 0;
-filter: blur(2px);
+filter: blur(0px);
 animation: cloudDrift linear infinite;
 }
 @keyframes cloudDrift {
 0%   { transform: translateX(-300px); opacity: 0; }
-5%   { opacity: 0.55; }
-90%  { opacity: 0.45; }
+5%   { opacity: 0.92; }
+90%  { opacity: 0.85; }
 100% { transform: translateX(110vw); opacity: 0; }
 }
 
@@ -1498,17 +1498,17 @@ requestAnimationFrame(drawStars);
 // ─── FLOATING CLOUDS ───
 const cloudLayer = document.getElementById(‘clouds-layer’);
 const cloudData = [
-{top:‘12%’, w:260, h:80, blur:8, dur:50, del:0},
-{top:‘30%’, w:180, h:60, blur:6, dur:65, del:10},
-{top:‘50%’, w:320, h:100, blur:10, dur:45, del:20},
-{top:‘68%’, w:200, h:65, blur:7, dur:58, del:5},
-{top:‘22%’, w:140, h:50, blur:5, dur:72, del:35},
-{top:‘42%’, w:280, h:90, blur:9, dur:40, del:15},
+{top:‘10%’, w:400, h:130, blur:0, dur:50, del:0},
+{top:‘30%’, w:320, h:100, blur:0, dur:65, del:10},
+{top:‘50%’, w:500, h:150, blur:0, dur:45, del:20},
+{top:‘68%’, w:350, h:110, blur:0, dur:58, del:5},
+{top:‘22%’, w:280, h:90, blur:0, dur:72, del:35},
+{top:‘42%’, w:450, h:140, blur:0, dur:40, del:15},
 ];
 
 cloudData.forEach(c => {
 const el = document.createElement(‘div’);
-el.style.cssText = `position:absolute; left:-350px; top:${c.top}; width:${c.w}px; height:${c.h}px; background:white; border-radius:50%; opacity:0; filter:blur(${c.blur}px); box-shadow: ${c.w*0.35}px -${c.h*0.35}px 0 ${c.h*0.22}px white, ${c.w*0.65}px -${c.h*0.15}px 0 ${c.h*0.18}px white, ${c.w*0.18}px -${c.h*0.45}px 0 ${c.h*0.28}px white; animation: cloudDrift ${c.dur}s linear -${c.del}s infinite; pointer-events:none;`;
+el.style.cssText = `position:absolute; left:-350px; top:${c.top}; width:${c.w}px; height:${c.h}px; background:white; border-radius:50%; opacity:0; filter:blur(0px); box-shadow: ${c.w*0.35}px -${c.h*0.35}px 0 ${c.h*0.22}px white, ${c.w*0.65}px -${c.h*0.15}px 0 ${c.h*0.18}px white, ${c.w*0.18}px -${c.h*0.45}px 0 ${c.h*0.28}px white; animation: cloudDrift ${c.dur}s linear -${c.del}s infinite; pointer-events:none;`;
 cloudLayer.appendChild(el);
 });
 </script>
