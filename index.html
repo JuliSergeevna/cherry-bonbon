@@ -37,6 +37,68 @@ color: var(–text-dark);
 overflow-x: hidden;
 }
 
+/* ─── DREAMY SKY BACKGROUND ─── */
+#dreamy-bg {
+position: fixed;
+inset: 0;
+z-index: -2;
+background: linear-gradient(
+180deg,
+#c8b4e8 0%,
+#b8d4f0 20%,
+#a8e4e8 35%,
+#f0c8d8 55%,
+#f8d8e8 70%,
+#fce8f0 85%,
+#fff0f5 100%
+);
+animation: skyShift 12s ease-in-out infinite alternate;
+}
+@keyframes skyShift {
+0%   { filter: hue-rotate(0deg) brightness(1); }
+50%  { filter: hue-rotate(15deg) brightness(1.05); }
+100% { filter: hue-rotate(-10deg) brightness(0.97); }
+}
+
+/* ─── STARS ─── */
+#stars-canvas {
+position: fixed;
+inset: 0;
+z-index: -1;
+pointer-events: none;
+}
+
+/* ─── CLOUDS LAYER ─── */
+#clouds-layer {
+position: fixed;
+inset: 0;
+z-index: -1;
+pointer-events: none;
+overflow: hidden;
+}
+.bg-cloud {
+position: absolute;
+border-radius: 50%;
+background: white;
+opacity: 0;
+filter: blur(2px);
+animation: cloudDrift linear infinite;
+}
+@keyframes cloudDrift {
+0%   { transform: translateX(-300px); opacity: 0; }
+5%   { opacity: 0.55; }
+90%  { opacity: 0.45; }
+100% { transform: translateX(110vw); opacity: 0; }
+}
+
+/* Make sections slightly transparent to let dreamy bg show through */
+.about-section  { background: rgba(255,255,255,0.82) !important; }
+.how-section    { background: rgba(253,240,248,0.80) !important; }
+.clouds-section { background: rgba(255,255,255,0.82) !important; }
+.includes-section { background: rgba(253,246,240,0.80) !important; }
+.payment-section  { background: rgba(255,255,255,0.82) !important; }
+.notice-bar { background: rgba(253,232,238,0.85) !important; }
+
 /* ─── FLOATING DECORATIONS ─── */
 .deco-float {
 position: fixed;
@@ -830,6 +892,12 @@ margin-top: 64px;
 </head>
 <body>
 
+<!-- Dreamy background -->
+
+<div id="dreamy-bg"></div>
+<canvas id="stars-canvas"></canvas>
+<div id="clouds-layer"></div>
+
 <!-- Floating decor -->
 
 <div class="deco-float df1">🌸</div>
@@ -1396,3 +1464,51 @@ document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 
 </body>
 </html>
+<script>
+// ─── STARS ───
+const canvas = document.getElementById('stars-canvas');
+const ctx = canvas.getContext('2d');
+function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+const stars = Array.from({length: 80}, () => ({
+x: Math.random() * window.innerWidth,
+y: Math.random() * window.innerHeight * 0.6,
+r: Math.random() * 1.5 + 0.5,
+phase: Math.random() * Math.PI * 2,
+speed: Math.random() * 0.015 + 0.005
+}));
+
+function drawStars(t) {
+ctx.clearRect(0, 0, canvas.width, canvas.height);
+stars.forEach(s => {
+const a = 0.3 + 0.7 * Math.abs(Math.sin(t * s.speed + s.phase));
+ctx.beginPath();
+ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+ctx.fillStyle = `rgba(255,255,255,${a})`;
+ctx.shadowBlur = 8;
+ctx.shadowColor = ‘rgba(255,255,255,1)’;
+ctx.fill();
+});
+requestAnimationFrame(drawStars);
+}
+requestAnimationFrame(drawStars);
+
+// ─── FLOATING CLOUDS ───
+const cloudLayer = document.getElementById(‘clouds-layer’);
+const cloudData = [
+{top:‘12%’, w:260, h:80, blur:8, dur:50, del:0},
+{top:‘30%’, w:180, h:60, blur:6, dur:65, del:10},
+{top:‘50%’, w:320, h:100, blur:10, dur:45, del:20},
+{top:‘68%’, w:200, h:65, blur:7, dur:58, del:5},
+{top:‘22%’, w:140, h:50, blur:5, dur:72, del:35},
+{top:‘42%’, w:280, h:90, blur:9, dur:40, del:15},
+];
+
+cloudData.forEach(c => {
+const el = document.createElement(‘div’);
+el.style.cssText = `position:absolute; left:-350px; top:${c.top}; width:${c.w}px; height:${c.h}px; background:white; border-radius:50%; opacity:0; filter:blur(${c.blur}px); box-shadow: ${c.w*0.35}px -${c.h*0.35}px 0 ${c.h*0.22}px white, ${c.w*0.65}px -${c.h*0.15}px 0 ${c.h*0.18}px white, ${c.w*0.18}px -${c.h*0.45}px 0 ${c.h*0.28}px white; animation: cloudDrift ${c.dur}s linear -${c.del}s infinite; pointer-events:none;`;
+cloudLayer.appendChild(el);
+});
+</script>
