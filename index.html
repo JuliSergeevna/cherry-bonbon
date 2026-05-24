@@ -317,21 +317,22 @@ display: flex; justify-content: center; align-items: center;
 position: relative;
 }
 .hero-img-frame {
-width: 380px; height: 480px;
-border-radius: 200px 200px 180px 180px;
+width: 520px; height: 340px;
+border-radius: 24px;
 overflow: hidden;
 position: relative;
-box-shadow: 0 20px 70px rgba(192,56,90,0.22);
+box-shadow: 0 20px 70px rgba(192,56,90,0.28);
 border: 3px solid rgba(249,198,208,0.6);
 }
 .hero-img-frame img {
 width: 100%; height: 100%;
 object-fit: cover;
+object-position: center top;
 }
 .hero-img-frame::after {
 content: ‘’;
 position: absolute; inset: 0;
-background: linear-gradient(to bottom, transparent 60%, rgba(192,56,90,0.15) 100%);
+background: linear-gradient(to bottom, transparent 70%, rgba(192,56,90,0.12) 100%);
 }
 .hero-img-badge {
 position: absolute;
@@ -1048,7 +1049,7 @@ margin-top: 64px;
       <div style="position:relative">
         <div class="hero-img-frame">
           <!-- Replace src with your character image URL -->
-          <img src="https://cdn.openart.ai/openart-ai/production/2026-05/create-image/I8763HZzjwVFkTZdBgR3/image_1779284809356_21582abd_1779284810229_3396db6b.png" alt="Cherry BonBon" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22380%22 height=%22480%22><rect fill=%22%23fde8ee%22 width=%22380%22 height=%22480%22/><text y=%22240%22 x=%22190%22 text-anchor=%22middle%22 font-size=%2280%22>🍒</text></svg>'">
+          <img src="https://i.imgur.com/rczdFpM.jpg" alt="Cherry BonBon" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22380%22 height=%22480%22><rect fill=%22%23fde8ee%22 width=%22380%22 height=%22480%22/><text y=%22240%22 x=%22190%22 text-anchor=%22middle%22 font-size=%2280%22>🍒</text></svg>'">
         </div>
         <div class="hero-img-badge">
           <div class="num">9</div>
