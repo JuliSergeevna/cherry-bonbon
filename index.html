@@ -1197,7 +1197,9 @@ margin-top: 64px;
       <div class="cloud-price"><sup>$</sup>30<span class="usd">USD</span></div>
       <span class="cloud-cta">Explore Cloud →</span>
     </a>
-    <a class="cloud-card" href="#" onclick="openCloud(4); return false;">
+    <a class="cloud-card" href="#" onclick="openCloud(4); return false;" style="background-image:url('https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779646871/IMG_7849_e9junp.jpg');background-size:cover;background-position:center;">
+      <div style="position:absolute;inset:0;background:linear-gradient(to bottom,rgba(255,255,255,0.1) 0%,rgba(255,255,255,0.85) 40%);border-radius:24px;"></div>
+      <div style="position:relative;z-index:1;">
       <div class="cloud-num">Cloud № 5</div>
       <div class="cloud-name">Paradise Dream Cloud</div>
       <div class="cloud-level">Game Level 65 · Up to 46 Sims</div>
@@ -1421,43 +1423,190 @@ const clouds = [
     num: "Cloud № 3", name: "Barbie Dream Cloud", price: "$25",
     level: "Game Level 65 · Up to 46 Sims",
     status: "complete",
-    desc: "A luxurious pink paradise inspired by Barbie aesthetics. Elegant homes, soft glam details, and a world designed for beauty, style, and imagination 💕✨",
+    cover: "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779626986/IMG_7689_cbnehh.jpg",
+    shortDesc: "3️⃣ Barbie Dream Cloud — $25 USD 💵\n👾 Game Level 65 • Up to 46 Sims\n✨ Complete & curated collection — no longer receiving new updates",
+    desc: "3️⃣ Barbie Dream Cloud — $25 USD 💵\nWelcome to Barbie's magical dreamland 💕✨\nA gorgeous pink-aesthetic world with exclusive luxury builds already designed and ready to enjoy. Same good medium collection of online packs and past event items as Gamer Dream Cloud — the difference is entirely in the buildings and aesthetic!\n\n🛍️ Actively updated until June 2025",
     features: [
-      "Game Level 65 · Up to 46 Sims",
-      "Pink Barbie-inspired builds and decor",
-      "Luxury outfits & hairstyles collection",
-      "VIP 15 status included",
-      "Complete & curated collection"
+      "🎮 VIP Level: 15 MAX",
+      "📊 Player Level: 65 (10 more levels to reach MAX)",
+      "🏛️ 6 Exclusive Ready-to-Play Builds:",
+      "∙ Barbie Dreamhouse",
+      "∙ Adam & Eve Paradise Hotel",
+      "∙ Dior Boutique",
+      "∙ Louis Vuitton Store",
+      "∙ Horror House",
+      "∙ SP House",
+      "🐻 Care Bears collection included",
+      "👗 Collection of Exclusive Rewards, Event prizes, Furniture, Hairstyles, Fashionable Clothes, AH houses, Cars & Pets — from online store purchases and rare limited-time items",
+      "💰 100M Simoleons & 2.1B LP and SP",
+      "📬 12.88M daily rewards sent directly to your mailbox — no more Cake Farms!",
+      "🔮 Platinum life orbs",
+      "🗝️ Mystery box keys",
+      "👥 46 Sims MAX (reaches 53 Sims at Level 75)",
+      "📦 Collection status: Complete & fixed"
     ],
-    gallery: []
+    gallery: [
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779626986/IMG_7689_cbnehh.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779657531/IMG_7608_boj4kd.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779657539/IMG_7609_wmd50z.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779657543/IMG_7610_yly2ki.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779657627/IMG_7617_isaz2m.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779657640/IMG_7624_vv7vnz.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779657640/IMG_7622_bk8oxl.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779657641/IMG_7623_rj5s1q.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779657728/IMG_7625_cdrfcq.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779657733/IMG_7627_vwfvtn.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779657813/IMG_7611_yyvzxy.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779657825/IMG_7614_fvy3ui.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779657825/IMG_7612_dmg1di.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779657887/IMG_7486_buy5cr.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779657890/IMG_7487_pedztz.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779657893/IMG_7488_epgmbl.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779657895/IMG_7495_syvw3g.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779657925/IMG_7688_rbuokz.jpg"
+    ]
   },
   {
     num: "Cloud № 4", name: "Barbie & Gamer Cloud", price: "$30",
     level: "Game Level 65 · Up to 46 Sims",
     status: "complete",
-    desc: "A unique fusion of glam and gaming energy. Bright Barbie-inspired luxury meets fun interactive builds for a stylish and modern gameplay experience 💖🎮",
+    cover: "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779626141/IMG_7586_h1r87h.jpg",
+    shortDesc: "4️⃣ Barbie & Gamer Cloud — $30 USD 💵\n👾 Game Level 65 • Up to 46 Sims\n✨ Complete & curated collection — no longer receiving new updates",
+    desc: "4️⃣ Barbie & Gamer Cloud — $30 USD 💵\nWhere glam meets gaming — the best of both worlds 💖🎮\nThis cloud is a perfect fusion of Gamer Dream Cloud and Barbie Dream Cloud — but with a noticeably larger collection of online packs and event items than either of them individually. The ideal choice for players who want a rich, ready-to-play world with exclusive builds AND a bigger variety of items to enjoy!\n\n🛍️ Actively updated until January 2026",
     features: [
-      "Game Level 65 · Up to 46 Sims",
-      "Mix of Barbie glam + gaming builds",
-      "VIP 15 status included",
-      "Rich curated inventory",
-      "Complete & fixed collection"
+      "🎮 VIP Level: 15 MAX",
+      "📊 Player Level: 65 (10 more levels to reach MAX)",
+      "🏛️ 11 Exclusive Ready-to-Play Builds:",
+      "∙ Gamer Lot",
+      "∙ City Restaurant Street",
+      "∙ City SPA",
+      "∙ Horror House",
+      "∙ SP House",
+      "∙ Barbie Dreamhouse",
+      "∙ Adam & Eve Paradise Hotel",
+      "∙ Dior Boutique",
+      "∙ Louis Vuitton Store",
+      "∙ Big Mall Cinema in the Desert",
+      "∙ Public Swimming Pool with Clouds Lot",
+      "🐻 Care Bears collection included",
+      "👗 Collection of Exclusive Rewards, Event prizes, Furniture, Hairstyles, Fashionable Clothes, AH houses, Cars & Pets — from online store purchases and rare limited-time items",
+      "💰 100M Simoleons & 2.1B LP and SP",
+      "📬 12.88M daily rewards sent directly to your mailbox — no more Cake Farms!",
+      "🔮 Platinum life orbs",
+      "🗝️ Mystery box keys",
+      "👥 46 Sims MAX (reaches 53 Sims at Level 75)",
+      "📦 Collection status: Complete & fixed"
     ],
-    gallery: []
+    gallery: [
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779626141/IMG_7586_h1r87h.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779626363/IMG_7655_bqla6o.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779626368/IMG_7662_ish3ir.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779626408/IMG_7673_tcvz1q.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779626395/IMG_7665_mmg5wc.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779626397/IMG_7667_gmmrn9.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779626405/IMG_7670_w6qllw.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779626381/IMG_7666_xfj44e.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779626295/IMG_7631_qe2pog.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779626304/IMG_7639_y9xnej.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779626287/IMG_7637_t9moc7.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779657531/IMG_7608_boj4kd.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779657539/IMG_7609_wmd50z.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779657543/IMG_7610_yly2ki.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779657627/IMG_7617_isaz2m.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779657640/IMG_7624_vv7vnz.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779657640/IMG_7622_bk8oxl.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779657641/IMG_7623_rj5s1q.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779657728/IMG_7625_cdrfcq.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779657733/IMG_7627_vwfvtn.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779657813/IMG_7611_yyvzxy.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779657825/IMG_7614_fvy3ui.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779657825/IMG_7612_dmg1di.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779657887/IMG_7486_buy5cr.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779657890/IMG_7487_pedztz.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779657893/IMG_7488_epgmbl.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779657895/IMG_7495_syvw3g.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779657925/IMG_7688_rbuokz.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779626409/IMG_7672_cvjusg.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779626417/IMG_7675_xkbkgp.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779626424/IMG_7678_pl1ijz.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779626319/IMG_7646_lo1wkz.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779626342/IMG_7653_loow6f.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779626339/IMG_7650_zezygl.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779626365/IMG_7647_fc0wel.jpg"
+    ]
   },
   {
     num: "Cloud № 5", name: "Paradise Dream Cloud", price: "$35",
     level: "Game Level 65 · Up to 46 Sims",
     status: "complete",
-    desc: "A premium aesthetic world with curated builds and exclusive details. Designed for players who want a more refined, stylish, and cozy gameplay experience 🍒✨",
+    cover: "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779646871/IMG_7849_e9junp.jpg",
+    desc: "5️⃣ Paradise Dream Cloud — $35 USD 💵💗\nThis game features the largest collection of limited-time event items and paid online pack assets out of all the games that is at Level 65 🎀✨\nA significantly greater amount of time, effort, and financial investment was put into building this cloud, making it truly one of a kind 💕🌸\n\nIt offers significantly more exclusive buildings than Barbie & Gamer Cloud, Barbie Dream Cloud, and Gamer Dream Cloud combined 🏰💖 and includes even more exclusive buildings that you can see in the gallery photos of this gaming cloud 🎮🍓✨ — making it a fantastic choice for players who love decorating, collecting, and exploring a world full of variety 💞🎀\n\n🛍️ Actively updated until February 2026",
     features: [
-      "Game Level 65 · Up to 46 Sims",
-      "Premium aesthetic builds",
-      "Exclusive rare items",
-      "VIP 15 status included",
-      "Complete & curated collection"
+      "🎮 VIP Level: 15 MAX",
+      "📊 Player Level: 65 (10 more levels to reach MAX)",
+      "🏛️ Exclusive Ready-to-Play Builds including:",
+      "∙ Saint Meadow Village",
+      "∙ Gamer Lot",
+      "∙ City Restaurant Street",
+      "∙ Barbie Dreamhouse",
+      "∙ Adam & Eve Paradise Hotel",
+      "∙ Dior Boutique & Louis Vuitton Store",
+      "∙ Big Mall Cinema in the Desert",
+      "∙ Public Swimming Pool with Clouds ☁️ Lot",
+      "∙ Arabian Luxury Hotel",
+      "∙ Pink Dream House & Blue Countryside Cottage",
+      "∙ VIP City Apartments",
+      "∙ …and more to discover!",
+      "🐻 Care Bears collection included",
+      "👗 Collection of Exclusive Rewards, Event prizes, Furniture, Hairstyles, Fashionable Clothes, AH houses, Cars & Pets — from online store purchases and rare limited-time items",
+      "💰 100M Simoleons & 2.1B LP and SP",
+      "📬 12.88M daily rewards sent directly to your mailbox — no more Cake Farms!",
+      "🔮 Platinum life orbs",
+      "🗝️ Mystery box keys",
+      "👥 46 Sims MAX (reaches 53 Sims at Level 75)",
+      "📦 Collection status: Complete & fixed"
     ],
-    gallery: []
+    gallery: [
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779646871/IMG_7849_e9junp.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779645964/IMG_7804_x8ghac.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779645965/IMG_7810_ypby4v.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779645958/IMG_7831_upcstu.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779645998/IMG_7834_u89hur.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779645966/IMG_7783_p1wz9l.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779645966/IMG_7785_pmtgpn.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779645971/IMG_7761_vfwcfn.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779645959/IMG_7767_apzrez.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779646107/IMG_7772_zpydek.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779646109/IMG_7775_yix5i9.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779645971/IMG_7776_qmnkon.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779645977/IMG_7744_urjm4i.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779645978/IMG_7746_jook1g.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779645982/IMG_7740_jiqdco.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779645982/IMG_7742_xz06ou.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779645990/IMG_7727_xfu0bk.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779645987/IMG_7736_f58yt9.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779646039/IMG_7752_bf4anu.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779645976/IMG_7755_tnwcr2.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779646042/IMG_7611_ocjssy.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779646030/IMG_7614_vfxas0.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779646042/IMG_7608_bzgciu.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779646034/IMG_7609_qjejxg.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779646026/IMG_7692_xrpdl4.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779646036/IMG_7617_vxibfz.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779646026/IMG_7624_m5tkt2.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779646018/IMG_7631_uwfhk5.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779646020/IMG_7645_kdekpz.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779646007/IMG_7657_gsuawo.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779646005/IMG_7659_x6japr.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779646023/IMG_7625_pg0y2m.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779646012/IMG_7646_bbzqjr.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779645997/IMG_7697_nsvdja.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779646000/IMG_7703_ama0is.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779645998/IMG_7711_nksefg.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779646024/IMG_7715_kgiouz.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779645989/IMG_7724_dpd1hi.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779645991/IMG_7726_srm8kz.jpg"
+    ]
   },
   {
     num: "Cloud № 6", name: "Empty Golden Cloud", price: "$33",
@@ -1526,10 +1675,11 @@ function openCloud(i) {
   const statusHtml = c.status === 'active'
     ? '<span class="cloud-status status-active">✅ Actively Updated</span>'
     : '<span class="cloud-status status-complete">✓ Complete Collection</span>';
-  const galleryHtml = c.gallery.length
-    ? c.gallery.map(src => `<img src="${src}" alt="">`).join('')
+  const galleryHtml = c.gallery && c.gallery.length
+    ? c.gallery.map(src => `<img src="${src}" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;cursor:pointer;">`).join('')
     : [1,2,3,4].map(() => `<div class="modal-gallery-placeholder">🌸</div>`).join('');
 
+  const descHtml = (c.desc || '').split('\n').map(line => line ? `<p style="margin-bottom:8px">${line}</p>` : '<br>').join('');
   document.getElementById('modalBody').innerHTML = `
     <div class="modal-header">
       <div class="modal-num">${c.num}</div>
@@ -1538,10 +1688,10 @@ function openCloud(i) {
       ${statusHtml}
       <div class="modal-price">${c.price} <span style="font-size:1rem;color:var(--text-light);font-family:'Lato',sans-serif">USD</span></div>
     </div>
-    <p class="modal-desc">${c.desc}</p>
-    <div class="modal-gallery">${galleryHtml}</div>
-    <ul class="modal-features">${c.features.map(f=>`<li>${f}</li>`).join('')}</ul>
-    <a href="https://ko-fi.com/cherrybonbon555" target="_blank" class="modal-buy">🍒 Buy This Cloud</a>
+    <div class="modal-desc" style="font-size:0.88rem;color:var(--text-mid);line-height:1.8;margin-bottom:20px">${descHtml}</div>
+    <div class="modal-gallery" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin:20px 0">${galleryHtml}</div>
+    <ul class="modal-features">${c.features.map(f=>`<li style="padding:5px 0;border-bottom:1px solid var(--pink-soft);font-size:0.85rem;color:var(--text-mid)">${f}</li>`).join('')}</ul>
+    <a href="https://ko-fi.com/cherrybonbon555" target="_blank" class="modal-buy" style="display:inline-block;margin-top:20px">🍒 Buy This Cloud</a>
   `;
   document.getElementById('cloudModal').classList.add('open');
   document.body.style.overflow = 'hidden';
