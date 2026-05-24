@@ -206,7 +206,7 @@ radial-gradient(circle 200px at 10% 80%, rgba(212,168,83,0.12) 0%, transparent 6
 .hero-fullbg {
 position: absolute; inset: 0;
 background: url(‘https://res.cloudinary.com/dcbueejwf/image/upload/v1779618522/D29ACE09-8076-4EC3-97EE-9ED564B5F3F6_pmcbec.png’) center center / cover no-repeat;
-z-index: 0;
+z-index: 10;
 }
 .hero-fullbg::after {
 content: ‘’;
@@ -237,7 +237,7 @@ animation: floatPetal 12s ease-in-out infinite;
 }
 
 .hero-inner {
-position: relative; z-index: 2;
+position: relative; z-index: 20;
 display: flex; flex-direction: column;
 align-items: flex-start;
 max-width: 1200px; margin: 0 auto;
@@ -1551,58 +1551,42 @@ const obs = new IntersectionObserver((entries) => {
   entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.1 });
 document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+// Stars animation
+try {
+  const canvas = document.getElementById('stars-canvas');
+  if (canvas) {
+    const ctx = canvas.getContext('2d');
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+    const stars = Array.from({length: 60}, () => ({
+      x: Math.random() * window.innerWidth,
+      y: Math.random() * window.innerHeight * 0.5,
+      r: Math.random() * 1.5 + 0.3,
+      phase: Math.random() * Math.PI * 2,
+      speed: Math.random() * 0.01 + 0.003
+    }));
+    let t = 0;
+    function drawStars() {
+      t += 0.016;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      stars.forEach(s => {
+        const a = 0.3 + 0.7 * Math.abs(Math.sin(t * s.speed + s.phase));
+        ctx.beginPath();
+        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(255,255,255,' + a + ')';
+        ctx.fill();
+      });
+      requestAnimationFrame(drawStars);
+    }
+    drawStars();
+  }
+} catch(e) {}
 </script>
 
 </body>
 </html>
-<script>
-// ─── STARS ───
-const canvas = document.getElementById('stars-canvas');
-const ctx = canvas.getContext('2d');
-function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
-resizeCanvas();
-window.addEventListener('resize', resizeCanvas);
-
-const stars = Array.from({length: 80}, () => ({
-x: Math.random() * window.innerWidth,
-y: Math.random() * window.innerHeight * 0.6,
-r: Math.random() * 1.5 + 0.5,
-phase: Math.random() * Math.PI * 2,
-speed: Math.random() * 0.015 + 0.005
-}));
-
-function drawStars(t) {
-ctx.clearRect(0, 0, canvas.width, canvas.height);
-stars.forEach(s => {
-const a = 0.3 + 0.7 * Math.abs(Math.sin(t * s.speed + s.phase));
-ctx.beginPath();
-ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-ctx.fillStyle = `rgba(255,255,255,${a})`;
-ctx.shadowBlur = 8;
-ctx.shadowColor = ‘rgba(255,255,255,1)’;
-ctx.fill();
-});
-requestAnimationFrame(drawStars);
-}
-requestAnimationFrame(drawStars);
-
-// ─── FLOATING CLOUDS ───
-const cloudLayer = document.getElementById(‘clouds-layer’);
-const cloudEmojis = [
-{top:‘8%’,  dur:50, del:0,  size:‘5rem’},
-{top:‘22%’, dur:70, del:12, size:‘4rem’},
-{top:‘38%’, dur:45, del:25, size:‘6rem’},
-{top:‘52%’, dur:60, del:8,  size:‘4.5rem’},
-{top:‘65%’, dur:55, del:18, size:‘5.5rem’},
-{top:‘78%’, dur:65, del:35, size:‘4rem’},
-{top:‘15%’, dur:80, del:40, size:‘3.5rem’},
-{top:‘45%’, dur:42, del:30, size:‘5rem’},
-];
-
-cloudEmojis.forEach(c => {
-const el = document.createElement(‘div’);
-el.style.cssText = ;
-el.textContent = ‘☁️’;
-cloudLayer.appendChild(el);
-});
-</script>
