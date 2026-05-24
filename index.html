@@ -205,8 +205,14 @@ radial-gradient(circle 200px at 10% 80%, rgba(212,168,83,0.12) 0%, transparent 6
 /* Full screen hero image */
 .hero-fullbg {
 position: absolute; inset: 0;
-background: url(‘https://res.cloudinary.com/dcbueejwf/image/upload/v1779618522/D29ACE09-8076-4EC3-97EE-9ED564B5F3F6_pmcbec.png’) center center / cover no-repeat;
 z-index: 10;
+overflow: hidden;
+}
+.hero-fullbg img {
+width: 100%; height: 100%;
+object-fit: cover;
+object-position: center center;
+display: block;
 }
 .hero-fullbg::after {
 content: ‘’;
@@ -1034,7 +1040,9 @@ margin-top: 64px;
 <!-- ═══════════════════════ HERO ═══════════════════════ -->
 
 <section class="hero">
-  <div class="hero-fullbg"></div>
+  <div class="hero-fullbg">
+  <img src="https://res.cloudinary.com/dcbueejwf/image/upload/v1779618522/D29ACE09-8076-4EC3-97EE-9ED564B5F3F6_pmcbec.png" alt="Cherry BonBon">
+</div>
   <div class="hero-inner">
     <div class="hero-text fade-up">
       <p class="hero-eyebrow">Luxury Gaming Clouds</p>
