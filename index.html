@@ -562,12 +562,14 @@ z-index: 3;
 .cloud-card:hover { transform: translateY(-6px); box-shadow: var(–shadow-card); border-color: var(–rose-deep); }
 .cloud-card:hover::before { opacity: 1; }
 .card-cover {
-width: 100%; height: 160px;
-object-fit: cover;
+width: 100%; height: 200px;
+object-fit: contain;
+background: var(–pink-soft);
 display: block;
 }
 .card-body {
-padding: 20px 22px 24px;
+padding: 18px 22px 22px;
+background: white;
 }
 
 .cloud-card.premium {
@@ -1088,35 +1090,40 @@ margin-top: 64px;
   </div>
   <div class="about-grid">
     <div class="about-text fade-up">
-      <h3>Welcome to Cherry BonBon ✨</h3>
-      <p>A gaming cloud is a fully ready-to-play Sims FreePlay game account. Each cloud is different and unique in its in-game content — from collections of purchased online packs to exclusive event items and one-of-a-kind built houses not available anywhere else.</p>
+      <h3>✨ Welcome to Cherry BonBon — premium cloud gaming without limits ✨</h3>
+      <p>A Gaming Cloud is a fully prepared, ready-to-play Sims FreePlay game account. Each cloud is unique and carefully built, offering different in-game content — from purchased online packs and exclusive event items to one-of-a-kind custom-built houses that are not available anywhere else.</p>
       <div class="about-highlight">
-        "All Game Clouds were originally created around 2012–2013 and have been actively built and enriched with content for 11–13 years 💕"
+        "All Game Clouds were originally created around 2012–2013 and have been continuously developed and enriched for over 11–13+ years 💕"
       </div>
-      <p>Some clouds continue to receive active updates to this day — especially the premium ones 👑. Others have a complete, fixed collection that stopped updating — but are still incredibly rich in content!</p>
-      <p>The best clouds in the collection contain up to <strong>95% of ALL ever released in-game content</strong> — both paid and free, from online packs and time-limited events.</p>
+      <p>👑 Premium VIP clouds are still actively updated to this day. Other clouds have a complete, finalized collection with no further updates — yet they still contain an exceptionally rich amount of content.</p>
+      <p>The strongest clouds in the collection include up to <strong>95% of ALL ever-released in-game content</strong> — both paid and free items, including online packs, limited-time events, and ultra-rare collectibles. 💎</p>
+      <div class="about-highlight" style="margin-top:16px">
+        If you dream of owning a massive, carefully curated collection of rare and exclusive in-game items — you are in the right place ✨<br><br>
+        Buying a game cloud is not just a purchase — it is a smart investment that saves you years of effort, time, and financial spending 💎<br><br>
+        Each account represents approximately <strong>$6,000–$8,000+</strong> in real in-game purchases 👑
+      </div>
     </div>
     <div class="fade-up" style="transition-delay:0.15s">
       <div class="features-grid">
         <div class="feature-card">
-          <div class="feature-icon">💎</div>
-          <h4>Premium Investment</h4>
-          <p>Each account represents $6,000–$8,000 in real purchases of online packs</p>
+          <div class="feature-icon">💛</div>
+          <h4>VIP 15 MAX</h4>
+          <p>Maximum VIP level — 12.88M Simoleon daily city reward continuously generating income</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">👑</div>
-          <h4>VIP 15 Status</h4>
-          <p>Maximum VIP level with 12.88M daily city rewards</p>
+          <div class="feature-icon">🎮</div>
+          <h4>Game Level 75 MAX</h4>
+          <p>Up to 53 Sims · 2.1B Lifestyle Points · 2.1B Social Points</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon">🏠</div>
           <h4>Unique Builds</h4>
-          <p>Exclusive custom-built houses not available anywhere else</p>
+          <p>Exclusive custom-built houses not available anywhere else 🌸</p>
         </div>
         <div class="feature-card">
-          <div class="feature-icon">🌸</div>
-          <h4>All Hobbies Done</h4>
-          <p>Every hobby, event, and task already fully completed</p>
+          <div class="feature-icon">✨</div>
+          <h4>Completed Progress</h4>
+          <p>Every hobby, event, and task is fully completed — nothing left unfinished</p>
         </div>
       </div>
     </div>
@@ -1348,7 +1355,7 @@ margin-top: 64px;
       <a href="https://ko-fi.com/cherrybonbon555" target="_blank" class="pay-link ko">Pay via Ko-fi</a>
     </div>
   </div>
-  <p style="text-align:center;margin-top:28px;font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--text-light);font-size:0.95rem">
+  <p style="text-align:center;margin-top:28px;font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--cherry);font-size:1.15rem;font-weight:500;">
     💬 Not sure which cloud is right for you? DM me and I'll help you find your perfect match! 🍒☁️
   </p>
 </section>
@@ -1380,8 +1387,15 @@ margin-top: 64px;
           <div class="name">Ko-fi · Cherry BonBon</div>
         </div>
       </a>
+      <a href="https://paypal.me/blackcodeblackness" target="_blank" class="contact-link">
+        <span class="contact-link-icon">💙</span>
+        <div class="contact-link-text">
+          <div class="label">Payment</div>
+          <div class="name">PayPal · Morgann Folly</div>
+        </div>
+      </a>
     </div>
-    <p class="contact-note">✨ Cherry BonBon — where progression meets exclusivity, and every account is already a finished world waiting to be enjoyed. ✨</p>
+    <p style="color:white;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.2rem;margin-top:30px;text-shadow:0 2px 10px rgba(0,0,0,0.2);opacity:1;">✨ Cherry BonBon — where progression meets exclusivity, and every account is already a finished world waiting to be enjoyed. ✨</p>
   </div>
 </section>
 
@@ -1707,7 +1721,10 @@ function openCloud(i) {
     <div class="modal-desc" style="font-size:0.88rem;color:var(--text-mid);line-height:1.8;margin-bottom:20px">${descHtml}</div>
     <div class="modal-gallery" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin:20px 0">${galleryHtml}</div>
     <ul class="modal-features">${c.features.map(f=>`<li style="padding:5px 0;border-bottom:1px solid var(--pink-soft);font-size:0.85rem;color:var(--text-mid)">${f}</li>`).join('')}</ul>
-    <a href="https://ko-fi.com/cherrybonbon555" target="_blank" class="modal-buy" style="display:inline-block;margin-top:20px">🍒 Buy This Cloud</a>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;">
+      <a href="https://ko-fi.com/cherrybonbon555" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:var(--cherry);color:white;padding:13px 24px;border-radius:50px;text-decoration:none;font-family:'Lato',sans-serif;font-size:0.82rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;box-shadow:0 4px 16px rgba(192,56,90,0.35);">🩷 Buy via Ko-fi</a>
+      <a href="https://paypal.me/blackcodeblackness" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#0070ba;color:white;padding:13px 24px;border-radius:50px;text-decoration:none;font-family:'Lato',sans-serif;font-size:0.82rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;box-shadow:0 4px 16px rgba(0,112,186,0.35);">💙 Buy via PayPal</a>
+    </div>
   `;
   document.getElementById('cloudModal').classList.add('open');
   document.body.style.overflow = 'hidden';
