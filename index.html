@@ -32,92 +32,12 @@ html { scroll-behavior: smooth; }
 
 body {
 font-family: ‘Lato’, sans-serif;
-background: var(–pink-pale);
+background: linear-gradient(180deg, #fde8ee 0%, #fff5f8 40%, #f5e6ff 70%, #fde8ee 100%);
 color: var(–text-dark);
 overflow-x: hidden;
 }
-
-/* ─── DREAMY SKY BACKGROUND ─── */
-#dreamy-bg {
-position: fixed;
-inset: 0;
-z-index: -2;
-background: linear-gradient(
-180deg,
-#c8b4e8 0%,
-#b8d4f0 20%,
-#a8e4e8 35%,
-#f0c8d8 55%,
-#f8d8e8 70%,
-#fce8f0 85%,
-#fff0f5 100%
-);
-animation: skyShift 12s ease-in-out infinite alternate;
-}
-@keyframes skyShift {
-0%   { filter: hue-rotate(0deg) brightness(1); }
-50%  { filter: hue-rotate(15deg) brightness(1.05); }
-100% { filter: hue-rotate(-10deg) brightness(0.97); }
-}
-
-/* ─── SVG CLOUDS FIXED ─── */
-#svg-clouds {
-position: fixed;
-inset: 0;
-z-index: 0;
-pointer-events: none;
-width: 100%;
-height: 100%;
-}
-.svg-cloud {
-fill: white;
-opacity: 0.85;
-animation: floatCloud ease-in-out infinite alternate;
-}
-@keyframes floatCloud {
-0%   { transform: translateX(0px) translateY(0px); }
-100% { transform: translateX(18px) translateY(-12px); }
-}
-
-/* ─── STARS ─── */
-#stars-canvas {
-position: fixed;
-inset: 0;
-z-index: -1;
-pointer-events: none;
-}
-
-/* ─── CLOUDS LAYER ─── */
-#clouds-layer {
-position: fixed;
-inset: 0;
-z-index: 9999;
-pointer-events: none;
-overflow: hidden;
-}
-.bg-cloud {
-position: absolute;
-border-radius: 50%;
-background: white;
-opacity: 0;
-filter: blur(0px);
-animation: cloudDrift linear infinite;
-}
-@keyframes cloudDrift {
-0%   { transform: translateX(-300px); opacity: 0; }
-5%   { opacity: 0.92; }
-90%  { opacity: 0.85; }
-100% { transform: translateX(110vw); opacity: 0; }
-}
-
-/* Make sections transparent so clouds and dreamy bg show through */
-.about-section  { background: rgba(255,255,255,0.55) !important; }
-.how-section    { background: rgba(253,240,248,0.50) !important; }
-.clouds-section { background: rgba(255,255,255,0.55) !important; }
-.includes-section { background: rgba(253,246,240,0.50) !important; }
-.payment-section  { background: rgba(255,255,255,0.55) !important; }
-.notice-bar { background: rgba(253,232,238,0.60) !important; }
-nav { background: rgba(253,246,240,0.75) !important; }
+/* keep content above the stars canvas */
+nav, section, footer { position: relative; z-index: 2; }
 
 /* ─── FLOATING DECORATIONS ─── */
 .deco-float {
@@ -186,10 +106,10 @@ transition: background 0.3s, transform 0.2s !important;
 /* ─── HERO ─── */
 .hero {
 min-height: 100vh;
-display: flex; align-items: flex-end;
+display: flex; align-items: center;
 position: relative;
 overflow: hidden;
-padding-top: 0;
+padding-top: 64px;
 }
 .hero-bg {
 position: absolute; inset: 0;
@@ -201,41 +121,6 @@ position: absolute; inset: 0;
 background:
 radial-gradient(circle 300px at 80% 20%, rgba(249,198,208,0.5) 0%, transparent 70%),
 radial-gradient(circle 200px at 10% 80%, rgba(212,168,83,0.12) 0%, transparent 60%);
-}
-/* Dark gradient overlay for text readability */
-.hero-overlay {
-position: absolute; inset: 0;
-background: linear-gradient(
-to bottom,
-rgba(0,0,0,0.05) 0%,
-rgba(0,0,0,0.15) 35%,
-rgba(0,0,0,0.50) 65%,
-rgba(0,0,0,0.72) 100%
-);
-z-index: 11;
-}
-/* Full screen hero image */
-.hero-fullbg {
-position: absolute; inset: 0;
-z-index: 10;
-overflow: hidden;
-}
-.hero-fullbg img {
-width: 100%; height: 100%;
-object-fit: cover;
-object-position: center center;
-display: block;
-}
-.hero-fullbg::after {
-content: ‘’;
-position: absolute; inset: 0;
-background: linear-gradient(
-to bottom,
-rgba(0,0,0,0.05) 0%,
-rgba(0,0,0,0.0) 40%,
-rgba(58,26,40,0.55) 85%,
-rgba(58,26,40,0.75) 100%
-);
 }
 /* Petal decorations */
 .petal {
@@ -255,55 +140,50 @@ animation: floatPetal 12s ease-in-out infinite;
 }
 
 .hero-inner {
-position: relative; z-index: 20;
-display: flex; flex-direction: column;
-align-items: flex-start;
-max-width: 900px; margin: 0 auto;
-padding: 40px 40px 80px;
-width: 100%;
+position: relative; z-index: 2;
+display: grid; grid-template-columns: 1fr 1fr;
+align-items: center;
+max-width: 1200px; margin: 0 auto;
+padding: 60px 40px;
+gap: 60px;
 }
 .hero-text { }
 .hero-eyebrow {
 font-family: ‘Lato’, sans-serif;
 font-size: 0.72rem;
-letter-spacing: 0.3em;
+letter-spacing: 0.25em;
 text-transform: uppercase;
-color: #f0d9a0;
-margin-bottom: 14px;
+color: var(–gold);
+margin-bottom: 16px;
 display: flex; align-items: center; gap: 10px;
-text-shadow: 0 2px 8px rgba(0,0,0,0.4);
 }
 .hero-eyebrow::before, .hero-eyebrow::after {
 content: ‘’; flex: none;
 width: 30px; height: 1px;
-background: #f0d9a0;
+background: var(–gold);
 display: inline-block;
 }
 .hero-title {
 font-family: ‘Cormorant Garamond’, serif;
-font-size: clamp(3.5rem, 8vw, 6rem);
-font-weight: 600;
-line-height: 0.95;
-color: white;
-margin-bottom: 14px;
-text-shadow: 0 4px 20px rgba(0,0,0,0.4);
-letter-spacing: 0.02em;
+font-size: clamp(2.8rem, 5vw, 4.5rem);
+font-weight: 300;
+line-height: 1.15;
+color: var(–cherry-dark);
+margin-bottom: 10px;
 }
 .hero-title em {
 font-style: italic;
-color: #ffd6e7;
-font-weight: 600;
+color: var(–cherry);
+font-weight: 400;
 }
 .hero-subtitle {
 font-family: ‘Cormorant Garamond’, serif;
-font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-font-weight: 400;
+font-size: 1.25rem;
+font-weight: 300;
 font-style: italic;
-color: rgba(255,255,255,0.95);
+color: var(–text-mid);
 margin-bottom: 28px;
-line-height: 1.5;
-text-shadow: 0 2px 12px rgba(0,0,0,0.45);
-max-width: 500px;
+line-height: 1.6;
 }
 .hero-tags {
 display: flex; flex-wrap: wrap; gap: 8px;
@@ -313,36 +193,18 @@ margin-bottom: 36px;
 font-size: 0.72rem;
 letter-spacing: 0.1em;
 text-transform: uppercase;
-padding: 7px 18px;
+padding: 6px 16px;
 border-radius: 50px;
-background: rgba(255,255,255,0.12);
-color: white;
-border: 1px solid rgba(255,255,255,0.28);
+background: white;
+color: var(–cherry);
+border: 1px solid var(–rose);
 font-family: ‘Lato’, sans-serif;
-backdrop-filter: blur(12px);
-font-weight: 500;
-text-shadow: 0 1px 4px rgba(0,0,0,0.3);
 }
-.tag.gold { background: rgba(212,168,83,0.25); border-color: rgba(240,217,160,0.5); color: #f0d9a0; }
+.tag.gold { background: var(–gold-light); border-color: var(–gold); color: var(–cherry-dark); }
 
 .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
 .btn-primary {
-background: linear-gradient(135deg, #f6d88c, #d4af37);
-color: #2b1b00;
-padding: 15px 34px;
-border-radius: 50px;
-text-decoration: none;
-font-family: ‘Lato’, sans-serif;
-font-size: 0.82rem;
-letter-spacing: 0.14em;
-text-transform: uppercase;
-font-weight: 700;
-transition: all 0.3s;
-box-shadow: 0 6px 24px rgba(212,168,55,0.4);
-}
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(212,168,55,0.55); filter: brightness(1.05); }
-.btn-secondary {
-background: rgba(255,255,255,0.12);
+background: var(–cherry);
 color: white;
 padding: 14px 32px;
 border-radius: 50px;
@@ -351,34 +213,45 @@ font-family: ‘Lato’, sans-serif;
 font-size: 0.82rem;
 letter-spacing: 0.12em;
 text-transform: uppercase;
-border: 1px solid rgba(255,255,255,0.3);
-backdrop-filter: blur(12px);
-font-weight: 500;
+transition: all 0.3s;
+box-shadow: 0 6px 24px rgba(192,56,90,0.3);
+}
+.btn-primary:hover { background: var(–cherry-dark); transform: translateY(-2px); box-shadow: 0 10px 30px rgba(192,56,90,0.4); }
+.btn-secondary {
+background: transparent;
+color: var(–cherry);
+padding: 14px 32px;
+border-radius: 50px;
+text-decoration: none;
+font-family: ‘Lato’, sans-serif;
+font-size: 0.82rem;
+letter-spacing: 0.12em;
+text-transform: uppercase;
+border: 1.5px solid var(–rose-deep);
 transition: all 0.3s;
 }
-.btn-secondary:hover { background: rgba(255,255,255,0.22); transform: translateY(-1px); }
+.btn-secondary:hover { border-color: var(–cherry); background: var(–pink-soft); }
 
 .hero-image {
 display: flex; justify-content: center; align-items: center;
 position: relative;
 }
 .hero-img-frame {
-width: 520px; height: 340px;
-border-radius: 24px;
+width: 380px; height: 480px;
+border-radius: 200px 200px 180px 180px;
 overflow: hidden;
 position: relative;
-box-shadow: 0 20px 70px rgba(192,56,90,0.28);
+box-shadow: 0 20px 70px rgba(192,56,90,0.22);
 border: 3px solid rgba(249,198,208,0.6);
 }
 .hero-img-frame img {
 width: 100%; height: 100%;
 object-fit: cover;
-object-position: center top;
 }
 .hero-img-frame::after {
 content: ‘’;
 position: absolute; inset: 0;
-background: linear-gradient(to bottom, transparent 70%, rgba(192,56,90,0.12) 100%);
+background: linear-gradient(to bottom, transparent 60%, rgba(192,56,90,0.15) 100%);
 }
 .hero-img-badge {
 position: absolute;
@@ -562,7 +435,7 @@ max-width: 1100px; margin: 0 auto 50px;
 background: var(–pink-pale);
 border: 1.5px solid var(–rose);
 border-radius: 24px;
-padding: 0;
+padding: 32px 28px;
 position: relative;
 transition: transform 0.3s, box-shadow 0.3s;
 cursor: pointer;
@@ -577,23 +450,9 @@ height: 4px;
 background: linear-gradient(to right, var(–rose), var(–cherry));
 opacity: 0;
 transition: opacity 0.3s;
-z-index: 3;
 }
 .cloud-card:hover { transform: translateY(-6px); box-shadow: var(–shadow-card); border-color: var(–rose-deep); }
 .cloud-card:hover::before { opacity: 1; }
-.card-cover {
-width: 100%;
-height: 240px;
-object-fit: cover;
-object-position: center top;
-display: block;
-border-radius: 22px 22px 0 0;
-}
-.card-body {
-padding: 18px 22px 22px;
-background: white;
-border-radius: 0 0 22px 22px;
-}
 
 .cloud-card.premium {
 background: linear-gradient(135deg, #fff9f0 0%, #fde8ee 100%);
@@ -637,20 +496,19 @@ margin-bottom: 6px;
 }
 .cloud-name {
 font-family: ‘Cormorant Garamond’, serif;
-font-size: 1.4rem;
-font-weight: 600;
+font-size: 1.35rem;
+font-weight: 500;
 color: var(–cherry-dark);
-margin-bottom: 6px;
+margin-bottom: 4px;
 line-height: 1.2;
 }
 .cloud-card.king .cloud-name { color: var(–cherry-dark); font-size: 1.5rem; }
 .cloud-level {
-font-size: 0.78rem;
-color: var(–text-mid);
-letter-spacing: 0.05em;
-margin-bottom: 6px;
+font-size: 0.75rem;
+color: var(–text-light);
+letter-spacing: 0.08em;
+margin-bottom: 14px;
 font-family: ‘Lato’, sans-serif;
-font-weight: 500;
 }
 .cloud-desc {
 font-size: 0.84rem;
@@ -925,12 +783,12 @@ box-shadow: 0 6px 24px rgba(192,56,90,0.3);
 @media (max-width: 900px) {
 nav { padding: 0 20px; }
 .nav-links { display: none; }
-.hero-inner { padding: 30px 24px 60px; }
-.hero-eyebrow { justify-content: flex-start; }
-.hero-title { font-size: clamp(3rem, 12vw, 4.5rem); }
-.hero-subtitle { font-size: 1.05rem; max-width: 100%; }
-.hero-btns { flex-direction: column; gap: 10px; }
-.btn-primary, .btn-secondary { text-align: center; }
+.hero-inner { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+.hero-image { order: -1; }
+.hero-img-frame { width: 280px; height: 350px; }
+.hero-eyebrow { justify-content: center; }
+.hero-btns { justify-content: center; }
+.hero-tags { justify-content: center; }
 .about-grid { grid-template-columns: 1fr; }
 .clouds-grid { grid-template-columns: 1fr 1fr; }
 .clouds-grid.two-col { grid-template-columns: 1fr; max-width: 380px; }
@@ -969,85 +827,158 @@ font-family: ‘Lato’, sans-serif;
 border-bottom: 1px solid var(–rose);
 margin-top: 64px;
 }
+
+.card-cover {
+width: 100%;
+height: 240px;
+object-fit: cover;
+object-position: center top;
+display: block;
+border-radius: 22px 22px 0 0;
+}
+.card-body {
+padding: 18px 22px 22px;
+background: white;
+border-radius: 0 0 22px 22px;
+}
+.cloud-card { overflow: hidden; padding: 0 !important; }
+
+/* ─── HERO FULL BACKGROUND ─── */
+.hero { position: relative; min-height: 100vh; display: flex; align-items: flex-end; overflow: hidden; }
+.hero-fullbg { position: absolute; inset: 0; z-index: 0; }
+.hero-fullbg img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.hero-overlay {
+position: absolute; inset: 0; z-index: 1;
+background: linear-gradient(to bottom,
+rgba(0,0,0,0.05) 0%, rgba(0,0,0,0.15) 35%,
+rgba(0,0,0,0.50) 65%, rgba(0,0,0,0.72) 100%);
+}
+.hero-inner { position: relative; z-index: 2; max-width: 900px; margin: 0 auto; padding: 40px 40px 80px; width: 100%; }
+.hero-title {
+font-family: ‘Cormorant Garamond’, serif !important;
+font-size: clamp(3.5rem, 8vw, 6rem) !important;
+font-weight: 600 !important;
+line-height: 0.95 !important;
+color: white !important;
+margin-bottom: 14px;
+text-shadow: 0 4px 20px rgba(0,0,0,0.4);
+letter-spacing: 0.02em;
+}
+.hero-title em { font-style: italic; color: #ffd6e7 !important; font-weight: 600; }
+.hero-subtitle {
+font-family: ‘Cormorant Garamond’, serif;
+font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+font-style: italic;
+color: rgba(255,255,255,0.95);
+margin-bottom: 28px; line-height: 1.5;
+text-shadow: 0 2px 12px rgba(0,0,0,0.45);
+max-width: 500px;
+}
+.hero-eyebrow { color: #f0d9a0 !important; text-shadow: 0 2px 8px rgba(0,0,0,0.4); }
+.hero-eyebrow::before, .hero-eyebrow::after { background: #f0d9a0 !important; }
+.hero .tag {
+background: rgba(255,255,255,0.12); color: white;
+border: 1px solid rgba(255,255,255,0.28);
+backdrop-filter: blur(12px); font-weight: 500;
+text-shadow: 0 1px 4px rgba(0,0,0,0.3);
+}
+.hero .tag.gold { background: rgba(212,168,83,0.25); border-color: rgba(240,217,160,0.5); color: #f0d9a0; }
+.hero .btn-primary {
+background: linear-gradient(135deg, #f6d88c, #d4af37); color: #2b1b00;
+font-weight: 700; box-shadow: 0 6px 24px rgba(212,168,55,0.4);
+}
+.hero .btn-secondary {
+background: rgba(255,255,255,0.12); color: white;
+border: 1px solid rgba(255,255,255,0.3); backdrop-filter: blur(12px);
+}
+@media (max-width: 900px) {
+.hero-inner { padding: 30px 24px 60px; }
+.hero-title { font-size: clamp(3rem, 12vw, 4.5rem) !important; }
+.hero-subtitle { font-size: 1.05rem; max-width: 100%; }
+.hero-btns { flex-direction: column; gap: 10px; }
+.hero .btn-primary, .hero .btn-secondary { text-align: center; }
+}
+
+/* ─── DREAMY SKY BACKGROUND ─── */
+#dreamy-bg {
+position: fixed; inset: 0; z-index: -2;
+background: linear-gradient(180deg, #c8b4e8 0%, #b8d4f0 20%, #a8e4e8 35%, #f0c8d8 55%, #f8d8e8 70%, #fce8f0 85%, #fff0f5 100%);
+animation: skyShift 12s ease-in-out infinite alternate;
+}
+@keyframes skyShift {
+0% { filter: hue-rotate(0deg) brightness(1); }
+50% { filter: hue-rotate(15deg) brightness(1.05); }
+100% { filter: hue-rotate(-10deg) brightness(0.97); }
+}
+/* ─── SVG CLOUDS FIXED ─── */
+#svg-clouds {
+position: fixed; inset: 0; z-index: 0;
+pointer-events: none; width: 100%; height: 100%;
+}
+.svg-cloud {
+fill: white; opacity: 0.85;
+animation: floatCloud ease-in-out infinite alternate;
+}
+@keyframes floatCloud {
+0% { transform: translateX(0px) translateY(0px); }
+100% { transform: translateX(18px) translateY(-12px); }
+}
+/* ─── CLOUDS DRIFT LAYER ─── */
+#clouds-layer {
+position: fixed; inset: 0; z-index: 0;
+pointer-events: none; overflow: hidden;
+}
+/* Make sections semi-transparent so dreamy bg shows through */
+.about-section { background: rgba(255,255,255,0.55) !important; }
+.how-section { background: rgba(253,240,248,0.50) !important; }
+.clouds-section { background: rgba(255,255,255,0.55) !important; }
+.includes-section { background: rgba(253,246,240,0.50) !important; }
+.payment-section { background: rgba(255,255,255,0.55) !important; }
+#reviews { background: rgba(255,245,248,0.55) !important; }
+.notice-bar { background: rgba(253,232,238,0.85) !important; }
+nav { background: rgba(253,246,240,0.85) !important; }
 </style>
 
 </head>
 <body>
 
-<!-- Dreamy background -->
+<!-- Dreamy animated sky background -->
 
 <div id="dreamy-bg"></div>
 <canvas id="stars-canvas"></canvas>
-<div id="clouds-layer"></div>
 
 <!-- SVG Clouds always visible -->
 
 <svg id="svg-clouds" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
-  <!-- Cloud 1 top left -->
   <g class="svg-cloud" style="animation-duration:6s; animation-delay:0s;">
-    <ellipse cx="120" cy="80" rx="80" ry="45"/>
-    <ellipse cx="170" cy="65" rx="60" ry="40"/>
-    <ellipse cx="80" cy="75" rx="50" ry="35"/>
-    <ellipse cx="220" cy="78" rx="55" ry="35"/>
+    <ellipse cx="120" cy="80" rx="80" ry="45"/><ellipse cx="170" cy="65" rx="60" ry="40"/><ellipse cx="80" cy="75" rx="50" ry="35"/><ellipse cx="220" cy="78" rx="55" ry="35"/>
   </g>
-  <!-- Cloud 2 top right -->
   <g class="svg-cloud" style="animation-duration:8s; animation-delay:-2s;">
-    <ellipse cx="1300" cy="60" rx="90" ry="50"/>
-    <ellipse cx="1360" cy="45" rx="65" ry="42"/>
-    <ellipse cx="1250" cy="55" rx="60" ry="38"/>
-    <ellipse cx="1410" cy="58" rx="50" ry="32"/>
+    <ellipse cx="1300" cy="60" rx="90" ry="50"/><ellipse cx="1360" cy="45" rx="65" ry="42"/><ellipse cx="1250" cy="55" rx="60" ry="38"/><ellipse cx="1410" cy="58" rx="50" ry="32"/>
   </g>
-  <!-- Cloud 3 middle left -->
   <g class="svg-cloud" style="animation-duration:7s; animation-delay:-3s; opacity:0.75;">
-    <ellipse cx="60" cy="280" rx="70" ry="40"/>
-    <ellipse cx="120" cy="265" rx="55" ry="36"/>
-    <ellipse cx="30" cy="275" rx="45" ry="30"/>
-    <ellipse cx="165" cy="275" rx="48" ry="30"/>
+    <ellipse cx="60" cy="280" rx="70" ry="40"/><ellipse cx="120" cy="265" rx="55" ry="36"/><ellipse cx="30" cy="275" rx="45" ry="30"/><ellipse cx="165" cy="275" rx="48" ry="30"/>
   </g>
-  <!-- Cloud 4 middle right -->
   <g class="svg-cloud" style="animation-duration:9s; animation-delay:-5s; opacity:0.78;">
-    <ellipse cx="1380" cy="300" rx="75" ry="42"/>
-    <ellipse cx="1330" cy="285" rx="58" ry="38"/>
-    <ellipse cx="1420" cy="295" rx="50" ry="32"/>
+    <ellipse cx="1380" cy="300" rx="75" ry="42"/><ellipse cx="1330" cy="285" rx="58" ry="38"/><ellipse cx="1420" cy="295" rx="50" ry="32"/>
   </g>
-  <!-- Cloud 5 center top -->
   <g class="svg-cloud" style="animation-duration:10s; animation-delay:-1s; opacity:0.70;">
-    <ellipse cx="720" cy="50" rx="100" ry="55"/>
-    <ellipse cx="790" cy="35" rx="70" ry="45"/>
-    <ellipse cx="650" cy="45" rx="65" ry="40"/>
-    <ellipse cx="840" cy="48" rx="60" ry="38"/>
+    <ellipse cx="720" cy="50" rx="100" ry="55"/><ellipse cx="790" cy="35" rx="70" ry="45"/><ellipse cx="650" cy="45" rx="65" ry="40"/><ellipse cx="840" cy="48" rx="60" ry="38"/>
   </g>
-  <!-- Cloud 6 lower left -->
   <g class="svg-cloud" style="animation-duration:7.5s; animation-delay:-4s; opacity:0.72;">
-    <ellipse cx="100" cy="520" rx="85" ry="48"/>
-    <ellipse cx="160" cy="505" rx="65" ry="42"/>
-    <ellipse cx="55" cy="515" rx="55" ry="35"/>
-    <ellipse cx="210" cy="515" rx="55" ry="35"/>
+    <ellipse cx="100" cy="520" rx="85" ry="48"/><ellipse cx="160" cy="505" rx="65" ry="42"/><ellipse cx="55" cy="515" rx="55" ry="35"/><ellipse cx="210" cy="515" rx="55" ry="35"/>
   </g>
-  <!-- Cloud 7 lower right -->
   <g class="svg-cloud" style="animation-duration:8.5s; animation-delay:-6s; opacity:0.73;">
-    <ellipse cx="1350" cy="550" rx="80" ry="45"/>
-    <ellipse cx="1290" cy="535" rx="60" ry="38"/>
-    <ellipse cx="1400" cy="542" rx="55" ry="35"/>
+    <ellipse cx="1350" cy="550" rx="80" ry="45"/><ellipse cx="1290" cy="535" rx="60" ry="38"/><ellipse cx="1400" cy="542" rx="55" ry="35"/>
   </g>
-  <!-- Cloud 8 bottom center -->
   <g class="svg-cloud" style="animation-duration:11s; animation-delay:-8s; opacity:0.68;">
-    <ellipse cx="680" cy="780" rx="95" ry="52"/>
-    <ellipse cx="760" cy="765" rx="72" ry="46"/>
-    <ellipse cx="610" cy="775" rx="65" ry="40"/>
-    <ellipse cx="810" cy="775" rx="62" ry="38"/>
+    <ellipse cx="680" cy="780" rx="95" ry="52"/><ellipse cx="760" cy="765" rx="72" ry="46"/><ellipse cx="610" cy="775" rx="65" ry="40"/><ellipse cx="810" cy="775" rx="62" ry="38"/>
   </g>
-  <!-- Cloud 9 small accent -->
   <g class="svg-cloud" style="animation-duration:5s; animation-delay:-2.5s; opacity:0.65;">
-    <ellipse cx="450" cy="150" rx="55" ry="32"/>
-    <ellipse cx="495" cy="140" rx="42" ry="28"/>
-    <ellipse cx="415" cy="146" rx="38" ry="25"/>
+    <ellipse cx="450" cy="150" rx="55" ry="32"/><ellipse cx="495" cy="140" rx="42" ry="28"/><ellipse cx="415" cy="146" rx="38" ry="25"/>
   </g>
-  <!-- Cloud 10 small accent right -->
   <g class="svg-cloud" style="animation-duration:6.5s; animation-delay:-7s; opacity:0.65;">
-    <ellipse cx="980" cy="400" rx="60" ry="34"/>
-    <ellipse cx="1030" cy="388" rx="45" ry="29"/>
-    <ellipse cx="940" cy="396" rx="40" ry="26"/>
+    <ellipse cx="980" cy="400" rx="60" ry="34"/><ellipse cx="1030" cy="388" rx="45" ry="29"/><ellipse cx="940" cy="396" rx="40" ry="26"/>
   </g>
 </svg>
 
@@ -1072,7 +1003,7 @@ margin-top: 64px;
 
 <!-- Notice bar -->
 
-<div class="notice-bar" style="font-size:0.88rem;font-weight:600;color:var(--cherry-dark);background:rgba(253,232,238,0.92)!important;border-bottom:2px solid var(--rose-deep);">
+<div class="notice-bar">
   ✨ All clouds include VIP 15 status &nbsp;·&nbsp; 2.1B social points &nbsp;·&nbsp; Years of gameplay already completed &nbsp;·&nbsp; iOS & Android compatible ✨
 </div>
 
@@ -1080,8 +1011,9 @@ margin-top: 64px;
 
 <section class="hero">
   <div class="hero-fullbg">
-  <img src="https://res.cloudinary.com/dcbueejwf/image/upload/v1779618522/D29ACE09-8076-4EC3-97EE-9ED564B5F3F6_pmcbec.png" alt="Cherry BonBon">
-</div>
+    <img src="https://res.cloudinary.com/dcbueejwf/image/upload/v1779618522/D29ACE09-8076-4EC3-97EE-9ED564B5F3F6_pmcbec.png" alt="Cherry BonBon">
+  </div>
+  <div class="hero-overlay"></div>
   <div class="hero-inner">
     <div class="hero-text fade-up">
       <p class="hero-eyebrow">Luxury Gaming Clouds</p>
@@ -1089,21 +1021,17 @@ margin-top: 64px;
         Cherry<br><em>BonBon</em>
       </h1>
       <p class="hero-subtitle">
-        Fully upgraded Sims FreePlay accounts —<br>
-        years of progression, ready to play.
+        Fully upgraded Sims FreePlay accounts —<br>years of progression, ready to play.
       </p>
-      <div class="hero-tags">
-        <span class="tag">✨ Luxury Collection</span>
+      <div class="hero-tags" style="margin-bottom:32px">
         <span class="tag gold">👑 VIP 15 Status</span>
         <span class="tag">🎮 iOS & Android</span>
-        <span class="tag">💎 11–13 Years Built</span>
       </div>
       <div class="hero-btns">
-        <a href="#clouds" class="btn-primary">☁️ View All Clouds</a>
+        <a href="#clouds" class="btn-primary">☁️ View Collection</a>
         <a href="#about" class="btn-secondary">Learn More</a>
       </div>
     </div>
-
   </div>
 </section>
 
@@ -1117,46 +1045,77 @@ margin-top: 64px;
   </div>
   <div class="about-grid">
     <div class="about-text fade-up">
-      <h3>✨ Welcome to Cherry BonBon — premium cloud gaming without limits ✨</h3>
+      <h3>✨ Sims FreePlay Luxury Cloud Experience ✨</h3>
       <p style="font-family:'Lato',sans-serif;font-size:0.78rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;font-weight:600;">⭐ Trusted by Hundreds of Customers</p>
-      <p>A Gaming Cloud is a fully prepared, ready-to-play Sims FreePlay game account. Each cloud is unique and carefully built, offering different in-game content — from purchased online packs and exclusive event items to one-of-a-kind custom-built houses that are not available anywhere else.</p>
+      <p>Premium, fully developed Sims FreePlay worlds with rare collections, VIP progression, and exclusive in-game content.</p>
       <div class="about-highlight">
-        "All Game Clouds were originally created around 2012–2013 and have been continuously developed and enriched for over 11–13+ years 💕"
+        💎 $6,000–$8,000+ real in-game value per account<br>
+        👑 11–13+ years of gameplay history<br>
+        ⭐ Curated luxury collections, ready to play instantly
       </div>
-      <p>👑 Premium VIP clouds are still actively updated to this day. Other clouds have a complete, finalized collection with no further updates — yet they still contain an exceptionally rich amount of content.</p>
-      <p>The strongest clouds in the collection include up to <strong>95% of ALL ever-released in-game content</strong> — both paid and free items, including online packs, limited-time events, and ultra-rare collectibles. 💎</p>
-      <p style="margin-top:16px">If you dream of owning a massive, carefully curated collection of rare and exclusive in-game items — you are in the right place ✨</p>
-      <p>Our Sims FreePlay game clouds contain content collected over many years, from the very beginning of the game's history. Instead of spending years grinding, collecting, and investing significant amounts of money, you can instantly access a fully developed, premium gameplay experience.</p>
-      <div class="about-highlight" style="margin-top:16px">
-        Buying a game cloud is not just a purchase — it is a smart investment that saves you years of effort, time, and financial spending 💎<br><br>
-        Each account represents approximately <strong>$6,000–$8,000+</strong> in real in-game purchases 👑
-      </div>
-      <p style="margin-top:16px">✨ Experience the ultimate Sims FreePlay world instantly — fully built, fully unlocked, fully yours.</p>
+      <p style="font-weight:600;color:var(--cherry);">👉 Select your world and begin immediately</p>
+
+```
+  <h3 style="margin-top:28px;">What Is a Gaming Cloud</h3>
+  <p>A Gaming Cloud is a fully prepared Sims FreePlay game save, built over many years of active gameplay.</p>
+  <p>Each world contains a unique combination of:</p>
+  <p style="margin-left:8px;">• Online store packs<br>• Limited-time event items<br>• Exclusive buildings and custom houses<br>• High-level progression and VIP status</p>
+  <p>Some accounts are actively updated. Others are fully completed collections. All of them represent long-term gameplay value and rare in-game history.</p>
+
+  <h3 style="margin-top:28px;">Value & Purpose</h3>
+  <p>A cloud gives instant access to a fully developed Sims FreePlay universe — without years of progression, collection, or spending.</p>
+  <p>Each account reflects approximately <strong>$6,000–$8,000+</strong> in real in-game purchases, accumulated over years of gameplay.</p>
+  <div class="about-highlight">
+    You are not starting from zero.<br>You are entering a completed world.
+  </div>
+
+  <h3 style="margin-top:28px;">What Defines Each Cloud</h3>
+  <p>Pricing and structure are based on content depth:</p>
+  <p style="margin-left:8px;">• VIP level and player progression<br>• Size of online pack collection<br>• Rare and discontinued event items<br>• Exclusive pre-built buildings<br>• Active updates or completed status</p>
+  <p>Some clouds focus on full creative freedom. Others offer fully designed luxury cities ready to explore.</p>
+
+  <h3 style="margin-top:28px;">Pricing Principle</h3>
+  <p>Higher-value clouds include:</p>
+  <p style="margin-left:8px;">✔ Larger and rarer collections<br>✔ More exclusive buildings<br>✔ Greater historical content<br>✔ Active updates (selected worlds)</p>
+  <p>Lower-priced clouds prioritize creative freedom with minimal structures, while still containing valuable collections.</p>
+
+  <h3 style="margin-top:28px;">Your Experience</h3>
+  <p>Every cloud is designed for a different type of player:</p>
+  <p style="margin-left:8px;">• Creative builders<br>• Collectors of rare content<br>• Luxury gameplay experience seekers<br>• Full-world immersion players</p>
+  <p>Each option delivers a complete premium Sims FreePlay world.</p>
+
+  <div class="about-highlight" style="margin-top:24px;">
+    💎 VIP 15 MAX · 2.1B LP · 2.1B SP · Daily rewards included<br>
+    🏠 Exclusive custom-built houses & rare collections<br>
+    👑 Premium digital investment-level game saves
+  </div>
+</div>
+<div class="fade-up" style="transition-delay:0.15s">
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">💎</div>
+      <h4>Premium Investment</h4>
+      <p>Each account represents $6,000–$8,000 in real purchases of online packs</p>
     </div>
-    <div class="fade-up" style="transition-delay:0.15s">
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon">💛</div>
-          <h4>💎 Maxed-Out Resources</h4>
-          <p>VIP 15 MAX · 2.1B Lifestyle Points · 2.1B Social Points · 12.88M Simoleon daily reward</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">👑</div>
-          <h4>Premium Investment</h4>
-          <p>$6,000–$8,000+ in real in-game purchases per account</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">🏠</div>
-          <h4>Unique Builds</h4>
-          <p>Exclusive custom-built houses not available anywhere else 🌸</p>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">✨</div>
-          <h4>Completed Progress</h4>
-          <p>Every hobby, event, and task is fully completed — nothing left unfinished</p>
-        </div>
-      </div>
+    <div class="feature-card">
+      <div class="feature-icon">👑</div>
+      <h4>VIP 15 Status</h4>
+      <p>Maximum VIP level with 12.88M daily city rewards</p>
     </div>
+    <div class="feature-card">
+      <div class="feature-icon">🏠</div>
+      <h4>Unique Builds</h4>
+      <p>Exclusive custom-built houses not available anywhere else</p>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">🌸</div>
+      <h4>All Hobbies Done</h4>
+      <p>Every hobby, event, and task already fully completed</p>
+    </div>
+  </div>
+</div>
+```
+
   </div>
 </section>
 
@@ -1213,8 +1172,8 @@ margin-top: 64px;
       <div class="card-body">
         <div class="cloud-num">Cloud № 1</div>
         <div class="cloud-name">Empty Game Cloud</div>
-        <div class="cloud-level">👾 Game Level 65 • Up to 46 Sims</div>
-        <div class="cloud-level" style="margin-top:4px">✨ Complete & curated collection</div>
+        <div class="cloud-level">👾 Game Level 65 · Up to 46 Sims</div>
+        <div class="cloud-level" style="margin-top:4px">✨ Fixed Collection — No Longer Receiving Updates</div>
         <div class="cloud-price" style="margin-top:14px"><sup>$</sup>16<span class="usd">USD</span></div>
         <span class="cloud-cta">Explore Cloud →</span>
       </div>
@@ -1224,8 +1183,8 @@ margin-top: 64px;
       <div class="card-body">
         <div class="cloud-num">Cloud № 2</div>
         <div class="cloud-name">Gamer Dream Cloud</div>
-        <div class="cloud-level">👾 Game Level 65 • Up to 46 Sims</div>
-        <div class="cloud-level" style="margin-top:4px">✨ Complete & curated collection</div>
+        <div class="cloud-level">👾 Game Level 65 · Up to 46 Sims</div>
+        <div class="cloud-level" style="margin-top:4px">✨ Fixed Collection — No Longer Receiving Updates</div>
         <div class="cloud-price" style="margin-top:14px"><sup>$</sup>25<span class="usd">USD</span></div>
         <span class="cloud-cta">Explore Cloud →</span>
       </div>
@@ -1235,8 +1194,8 @@ margin-top: 64px;
       <div class="card-body">
         <div class="cloud-num">Cloud № 3</div>
         <div class="cloud-name">Barbie Dream Cloud</div>
-        <div class="cloud-level">👾 Game Level 65 • Up to 46 Sims</div>
-        <div class="cloud-level" style="margin-top:4px">✨ Complete & curated collection</div>
+        <div class="cloud-level">👾 Game Level 65 · Up to 46 Sims</div>
+        <div class="cloud-level" style="margin-top:4px">✨ Fixed Collection — No Longer Receiving Updates</div>
         <div class="cloud-price" style="margin-top:14px"><sup>$</sup>25<span class="usd">USD</span></div>
         <span class="cloud-cta">Explore Cloud →</span>
       </div>
@@ -1246,9 +1205,9 @@ margin-top: 64px;
       <div class="card-body">
         <div class="cloud-num">Cloud № 4</div>
         <div class="cloud-name">Barbie & Gamer Cloud</div>
-        <div class="cloud-level">👾 Game Level 65 • Up to 46 Sims</div>
-        <div class="cloud-level" style="margin-top:4px">✨ Complete & curated collection</div>
-        <div class="cloud-price" style="margin-top:14px"><sup>$</sup>45<span class="usd">USD</span></div>
+        <div class="cloud-level">👾 Game Level 65 · Up to 46 Sims</div>
+        <div class="cloud-level" style="margin-top:4px">✨ Fixed Collection — No Longer Receiving Updates</div>
+        <div class="cloud-price" style="margin-top:14px"><sup>$</sup>35<span class="usd">USD</span></div>
         <span class="cloud-cta">Explore Cloud →</span>
       </div>
     </a>
@@ -1257,63 +1216,61 @@ margin-top: 64px;
       <div class="card-body">
         <div class="cloud-num">Cloud № 5</div>
         <div class="cloud-name">Paradise Dream Cloud</div>
-        <div class="cloud-level">👾 Game Level 65 • Up to 46 Sims</div>
-        <div class="cloud-level" style="margin-top:4px">✨ Complete & curated collection</div>
+        <div class="cloud-level">👾 Game Level 65 · Up to 46 Sims</div>
+        <div class="cloud-level" style="margin-top:4px">✨ Fixed Collection — No Longer Receiving Updates</div>
         <div class="cloud-price" style="margin-top:14px"><sup>$</sup>45<span class="usd">USD</span></div>
         <span class="cloud-cta">Explore Cloud →</span>
       </div>
     </a>
   </div>
 
-  <!-- PREMIUM VIP COLLECTION -->
+  <!-- PREMIUM COLLECTION -->
 
   <div class="tier-label gold-tier fade-up" style="font-weight:700;font-size:1.25rem;letter-spacing:0.05em;">👑 Game Level 75 Max • Premium VIP Clouds • Max Inventory Collection 👑</div>
-  <div class="clouds-grid" style="max-width:1100px;margin:0 auto 20px">
+  <div class="clouds-grid" style="max-width:1100px;margin:0 auto">
     <a class="cloud-card premium" href="javascript:void(0)" onclick="openCloud(5)">
       <img class="card-cover" src="https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779815150/IMG_7948_y4g2bl.jpg" alt="Empty Golden Cloud">
       <div class="card-body">
         <div class="cloud-num">Cloud № 6</div>
         <div class="cloud-name">Empty Golden Cloud</div>
-        <div class="cloud-level">👾 Game Level 75 MAX • Up to 53 Sims</div>
-        <div class="cloud-level" style="margin-top:4px">✨ Fixed collection — no longer receiving new updates</div>
+        <div class="cloud-level">👾 Game Level 75 MAX · Up to 53 Sims</div>
+        <div class="cloud-level" style="margin-top:4px">✨ Fixed Collection — No Longer Receiving Updates</div>
         <div class="cloud-price" style="margin-top:14px"><sup>$</sup>33<span class="usd">USD</span></div>
         <span class="cloud-cta">Explore Cloud →</span>
       </div>
     </a>
     <a class="cloud-card bestseller" href="javascript:void(0)" onclick="openCloud(6)">
+      <span class="cloud-badge badge-best">🔥 Best Seller</span>
       <img class="card-cover" src="https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779814457/IMG_7944_y0m50a.jpg" alt="Platinum VIP Cloud">
       <div class="card-body">
         <div class="cloud-num">Cloud № 7</div>
         <div class="cloud-name">Platinum VIP Cloud</div>
-        <div class="cloud-level">👾 Game Level 75 MAX • Up to 53 Sims</div>
-        <div class="cloud-level" style="margin-top:4px">✅ Still receiving new event item updates</div>
+        <div class="cloud-level">👾 Game Level 75 MAX · Up to 53 Sims</div>
+        <div class="cloud-level" style="margin-top:4px">✨ Actively Receiving New Event Updates</div>
         <div class="cloud-price" style="margin-top:14px"><sup>$</sup>45<span class="usd">USD</span></div>
         <span class="cloud-cta">Explore Cloud →</span>
       </div>
     </a>
     <a class="cloud-card bestseller" href="javascript:void(0)" onclick="openCloud(7)">
+      <span class="cloud-badge badge-best">💎 Elite</span>
       <img class="card-cover" src="https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779703864/IMG_7889_alaj7o.jpg" alt="Diamond Elite Cloud">
       <div class="card-body">
         <div class="cloud-num">Cloud № 8</div>
         <div class="cloud-name">Diamond Elite Cloud</div>
-        <div class="cloud-level">👾 Game Level 75 MAX • Up to 53 Sims</div>
-        <div class="cloud-level" style="margin-top:4px">✅ Still receiving new event item updates</div>
+        <div class="cloud-level">👾 Game Level 75 MAX · Up to 53 Sims</div>
+        <div class="cloud-level" style="margin-top:4px">✨ Actively Receiving New Event Updates</div>
         <div class="cloud-price" style="margin-top:14px"><sup>$</sup>65<span class="usd">USD</span></div>
         <span class="cloud-cta">Explore Cloud →</span>
       </div>
     </a>
-  </div>
-
-  <!-- KING CLOUD -->
-
-  <div style="max-width:420px;margin:30px auto 0">
     <a class="cloud-card king" href="javascript:void(0)" onclick="openCloud(8)">
       <span class="cloud-badge badge-king">👑 THE KING</span>
+      <img class="card-cover" src="https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779918295/IMG_7972_y4hfov.jpg" alt="Royal Supreme MAX">
       <div class="card-body">
         <div class="cloud-num">Cloud № 9 · Ultimate</div>
         <div class="cloud-name">Royal Supreme MAX</div>
-        <div class="cloud-level">👾 Game Level 75 MAX • Up to 53 Sims</div>
-        <div class="cloud-level" style="margin-top:4px">✅ Actively updated with all new content</div>
+        <div class="cloud-level">👾 Game Level 75 MAX · Up to 53 Sims</div>
+        <div class="cloud-level" style="margin-top:4px">✨ Actively Updated With Every New Online Pack Released & Events Updates</div>
         <div class="cloud-price" style="margin-top:14px"><sup>$</sup>85<span class="usd">USD</span></div>
         <span class="cloud-cta">Explore Cloud →</span>
       </div>
@@ -1363,7 +1320,7 @@ margin-top: 64px;
       </div>
     </div>
     <div class="about-highlight fade-up" style="max-width:600px;margin:36px auto 0;text-align:center">
-      <strong style="color:var(--cherry-dark);font-size:1rem;">⚠️ A gaming cloud is a fully upgraded account. To keep your current game, simply use a second Facebook account or second device 😊</strong>
+      ⚠️ A gaming cloud is a fully upgraded account. To keep your current game, simply use a second Facebook account or second device 😊
     </div>
   </div>
 </section>
@@ -1391,10 +1348,12 @@ margin-top: 64px;
       <a href="https://ko-fi.com/cherrybonbon555" target="_blank" class="pay-link ko">Pay via Ko-fi</a>
     </div>
   </div>
-  <p style="text-align:center;margin-top:28px;font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--cherry);font-size:1.15rem;font-weight:500;">
+  <p style="text-align:center;margin-top:28px;font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--text-light);font-size:0.95rem">
     💬 Not sure which cloud is right for you? DM me and I'll help you find your perfect match! 🍒☁️
   </p>
 </section>
+
+<!-- ═══════════════════════ CONTACT ═══════════════════════ -->
 
 <!-- ═══════════════════════ REVIEWS ═══════════════════════ -->
 
@@ -1405,11 +1364,10 @@ margin-top: 64px;
     <div class="section-line"></div>
   </div>
   <div style="max-width:900px;margin:0 auto;">
-    <div id="reviews-container" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;margin-bottom:40px;">
-      <!-- Reviews will appear here -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;margin-bottom:40px;">
       <div style="background:white;border-radius:20px;padding:24px;border:1.5px solid var(--rose);box-shadow:var(--shadow-soft);">
         <div style="font-size:1.2rem;color:var(--gold);margin-bottom:8px;">⭐⭐⭐⭐⭐</div>
-        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:var(--text-mid);line-height:1.7;margin-bottom:12px;">"Amazing cloud! Everything was exactly as described. Super fast setup and Julia was so helpful! 💕"</p>
+        <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1rem;color:var(--text-mid);line-height:1.7;margin-bottom:12px;">"Amazing cloud! Everything was exactly as described. Super fast setup and so helpful! 💕"</p>
         <p style="font-size:0.78rem;color:var(--text-light);font-family:'Lato',sans-serif;font-weight:600;">— Sarah M. 🌸</p>
       </div>
       <div style="background:white;border-radius:20px;padding:24px;border:1.5px solid var(--rose);box-shadow:var(--shadow-soft);">
@@ -1419,15 +1377,13 @@ margin-top: 64px;
       </div>
     </div>
     <div style="text-align:center;">
-      <a href="https://www.facebook.com/profile.php?id=61589971466482" target="_blank" style="display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--cherry),var(--cherry-dark));color:white;padding:16px 36px;border-radius:50px;text-decoration:none;font-family:'Lato',sans-serif;font-size:0.85rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;box-shadow:0 6px 24px rgba(192,56,90,0.35);transition:all 0.3s;">
+      <a href="https://www.facebook.com/profile.php?id=61589971466482" target="_blank" style="display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--cherry),var(--cherry-dark));color:white;padding:16px 36px;border-radius:50px;text-decoration:none;font-family:'Lato',sans-serif;font-size:0.85rem;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;box-shadow:0 6px 24px rgba(192,56,90,0.35);">
         ⭐ Leave a Review on Facebook
       </a>
       <p style="margin-top:14px;font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--text-light);font-size:0.92rem;">Share your Cherry BonBon experience! 🍒</p>
     </div>
   </div>
 </section>
-
-<!-- ═══════════════════════ CONTACT ═══════════════════════ -->
 
 <section class="contact-section section" id="contact">
   <div class="contact-inner">
@@ -1444,14 +1400,7 @@ margin-top: 64px;
         <span class="contact-link-icon">📘</span>
         <div class="contact-link-text">
           <div class="label">Facebook Business Page</div>
-          <div class="name">Cherry BonBon</div>
-        </div>
-      </a>
-      <a href="https://www.facebook.com/profile.php?id=61569418790067" target="_blank" class="contact-link">
-        <span class="contact-link-icon">🎮</span>
-        <div class="contact-link-text">
-          <div class="label">Gaming Page</div>
-          <div class="name">Sims FreePlay</div>
+          <div class="name">Peggy Dessert</div>
         </div>
       </a>
       <a href="https://ko-fi.com/cherrybonbon555" target="_blank" class="contact-link">
@@ -1461,15 +1410,8 @@ margin-top: 64px;
           <div class="name">Ko-fi · Cherry BonBon</div>
         </div>
       </a>
-      <a href="https://paypal.me/blackcodeblackness" target="_blank" class="contact-link">
-        <span class="contact-link-icon">💙</span>
-        <div class="contact-link-text">
-          <div class="label">Payment</div>
-          <div class="name">PayPal · Morgann Folly</div>
-        </div>
-      </a>
     </div>
-    <p style="color:white;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.2rem;margin-top:30px;text-shadow:0 2px 10px rgba(0,0,0,0.2);opacity:1;">✨ Cherry BonBon — where progression meets exclusivity, and every account is already a finished world waiting to be enjoyed. ✨</p>
+    <p class="contact-note">✨ Cherry BonBon — where progression meets exclusivity, and every account is already a finished world waiting to be enjoyed. ✨</p>
   </div>
 </section>
 
@@ -1494,22 +1436,22 @@ margin-top: 64px;
 <script>
 const clouds = [
   {
-    num: "Cloud \u2116 1", name: "Empty Game Cloud", price: "$16",
-    level: "Game Level 65 \u00b7 Up to 46 Sims",
+    num: "Cloud № 1", name: "Empty Game Cloud", price: "$16",
+    level: "Game Level 65 · Up to 46 Sims",
     status: "complete",
     cover: "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779713494/IMG_7893_m0bfeh.jpg",
-    desc: "A clean and open world created for players who love complete creative freedom. This cloud contains no pre-built houses, allowing you to design your dream city entirely your own way from the very beginning.\n\nDespite being the most affordable cloud in the collection, it still includes a strong archive of online packs, event rewards, furniture, hairstyles, clothing, cars, pets, and rare collectibles accumulated over years of gameplay.\n\n\ud83d\udca1 Why this cloud is priced lower:\nThis is the entry-level cloud in the collection. It includes a solid collection of online packs and event items, but no ready-to-play luxury buildings.\n\n\ud83d\udecd\ufe0f Includes all content completed up to June 2025.",
+    desc: "A clean and open world created for players who love complete creative freedom. This cloud contains no pre-built houses, allowing you to design your dream city entirely your own way from the very beginning.\n\nDespite being the most affordable cloud in the collection, it still includes a strong archive of online packs, event rewards, furniture, hairstyles, clothing, cars, pets, and rare collectibles accumulated over years of gameplay.\n\n💡 Why this cloud is priced lower:\nThis is the entry-level cloud in the collection. It includes a solid collection of online packs and event items, but no ready-to-play luxury buildings.",
     features: [
-      "\u2714 VIP Level 15 MAX",
-      "\u2714 Player Level 65",
-      "\u2714 Care Bears Collection",
-      "\u2714 Exclusive Rewards & Event Items",
-      "\u2714 Furniture, Hairstyles, Fashion Items, Cars & Pets",
-      "\u2714 100M Simoleons & 2.1B LP/SP",
-      "\u2714 12.88M Daily Mailbox Rewards",
-      "\u2714 Platinum Life Orbs & Mystery Keys",
-      "\u2714 46 Sims MAX",
-      "\ud83d\udce6 Collection Status: Complete & Fixed"
+      "✔ VIP Level 15 MAX",
+      "✔ Player Level 65",
+      "✔ Care Bears Collection",
+      "✔ Exclusive Rewards & Event Items",
+      "✔ Furniture, Hairstyles, Fashion Items, Cars & Pets",
+      "✔ 100M Simoleons & 2.1B LP/SP",
+      "✔ 12.88M Simoleons Daily Mailbox Rewards",
+      "✔ Platinum Life Orbs & Mystery Keys",
+      "✔ 46 Sims MAX",
+      "📦 Collection Status: Complete & Fixed"
     ],
     gallery: [
       "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779713494/IMG_7893_m0bfeh.jpg",
@@ -1517,22 +1459,22 @@ const clouds = [
     ]
   },
   {
-    num: "Cloud \u2116 2", name: "Gamer Dream Cloud", price: "$25",
-    level: "Game Level 65 \u00b7 Up to 46 Sims",
+    num: "Cloud № 2", name: "Gamer Dream Cloud", price: "$25",
+    level: "Game Level 65 · Up to 46 Sims",
     status: "complete",
     cover: "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779625328/IMG_7591_vqrlit.jpg",
-    desc: "A vibrant gaming-inspired world filled with exclusive ready-to-play themed builds and a rich collection of online packs and event rewards.\n\nPerfect for players who love modern gaming aesthetics, immersive themed locations, and a city already prepared for instant gameplay.\n\n\ud83d\udca1 Why this cloud costs more:\nIncludes 5 exclusive pre-built themed locations in addition to the same strong base collection found in Empty Game Cloud.\n\n\ud83d\udecd\ufe0f Includes all content completed up to Summer 2025.\n\n\ud83c\udfd9\ufe0f Exclusive Builds:\n\u2022 Gamer Large Lot\n\u2022 City Restaurant Street\n\u2022 City SPA\n\u2022 Horror House\n\u2022 SP House",
+    desc: "A vibrant gaming-inspired world filled with exclusive ready-to-play themed builds and a rich collection of online packs and event rewards.\n\nPerfect for players who love modern gaming aesthetics, immersive themed locations, and a city already prepared for instant gameplay.\n\n💡 Why this cloud costs more:\nIncludes 5 exclusive pre-built themed locations in addition to the same strong base collection.\n\n🏛️ Exclusive Builds:\n• Gamer Large Lot\n• City Restaurant Street\n• City SPA\n• Horror House\n• SP House",
     features: [
-      "\u2714 VIP Level 15 MAX",
-      "\u2714 Player Level 65",
-      "\u2714 Care Bears Collection",
-      "\u2714 Exclusive Rewards & Event Items",
-      "\u2714 Furniture, Hairstyles, Fashion Items, Cars & Pets",
-      "\u2714 100M Simoleons & 2.1B LP/SP",
-      "\u2714 12.88M Daily Mailbox Rewards",
-      "\u2714 Platinum Life Orbs & Mystery Keys",
-      "\u2714 46 Sims MAX",
-      "\ud83d\udce6 Collection Status: Complete & Fixed"
+      "✔ VIP Level 15 MAX",
+      "✔ Player Level 65",
+      "✔ Care Bears Collection",
+      "✔ Exclusive Rewards & Event Items",
+      "✔ Furniture, Hairstyles, Fashion Items, Cars & Pets",
+      "✔ 100M Simoleons & 2.1B LP/SP",
+      "✔ 12.88M Simoleons Daily Mailbox Rewards",
+      "✔ Platinum Life Orbs & Mystery Keys",
+      "✔ 46 Sims MAX",
+      "📦 Collection Status: Complete & Fixed"
     ],
     gallery: [
       "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779625328/IMG_7591_vqrlit.jpg",
@@ -1564,22 +1506,22 @@ const clouds = [
     ]
   },
   {
-    num: "Cloud \u2116 3", name: "Barbie Dream Cloud", price: "$25",
-    level: "Game Level 65 \u00b7 Up to 46 Sims",
+    num: "Cloud № 3", name: "Barbie Dream Cloud", price: "$25",
+    level: "Game Level 65 · Up to 46 Sims",
     status: "complete",
     cover: "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779626986/IMG_7689_cbnehh.jpg",
-    desc: "A glamorous pink luxury world inspired by fashion, beauty, and dream aesthetics.\n\nThis cloud offers the same collection size as Gamer Dream Cloud, but with an entirely different atmosphere and visual identity designed for players who love elegant and stylish gameplay.\n\n\ud83d\udca1 Why this cloud has the same price as Gamer Dream Cloud:\nBoth clouds contain a similar online pack collection and event archive. The difference is entirely based on aesthetic style and exclusive themed buildings.\n\n\ud83d\udecd\ufe0f Includes all content completed up to Summer 2025.\n\n\ud83c\udfd9\ufe0f Exclusive Builds:\n\u2022 Barbie Dreamhouse\n\u2022 Adam & Eve Paradise Hotel\n\u2022 Dior Boutique\n\u2022 Louis Vuitton Store\n\u2022 Horror House\n\u2022 SP House",
+    desc: "A glamorous pink luxury world inspired by fashion, beauty, and dream aesthetics.\n\nThis cloud offers the same collection size as Gamer Dream Cloud, but with an entirely different atmosphere and visual identity designed for players who love elegant and stylish gameplay.\n\n💡 Why this cloud has the same price as Gamer Dream Cloud:\nBoth clouds contain a similar online pack collection and event archive. The difference is entirely based on aesthetic style and exclusive themed buildings.\n\n🏛️ Exclusive Builds:\n• Barbie Dreamhouse\n• Adam & Eve Paradise Hotel\n• Dior Boutique\n• Louis Vuitton Store\n• Horror House\n• SP House",
     features: [
-      "\u2714 VIP Level 15 MAX",
-      "\u2714 Player Level 65",
-      "\u2714 Care Bears Collection",
-      "\u2714 Exclusive Rewards & Event Items",
-      "\u2714 Furniture, Hairstyles, Fashion Items, Cars & Pets",
-      "\u2714 100M Simoleons & 2.1B LP/SP",
-      "\u2714 12.88M Daily Mailbox Rewards",
-      "\u2714 Platinum Life Orbs & Mystery Keys",
-      "\u2714 46 Sims MAX",
-      "\ud83d\udce6 Collection Status: Complete & Fixed"
+      "✔ VIP Level 15 MAX",
+      "✔ Player Level 65",
+      "✔ Care Bears Collection",
+      "✔ Exclusive Rewards & Event Items",
+      "✔ Furniture, Hairstyles, Fashion Items, Cars & Pets",
+      "✔ 100M Simoleons & 2.1B LP/SP",
+      "✔ 12.88M Simoleons Daily Mailbox Rewards",
+      "✔ Platinum Life Orbs & Mystery Keys",
+      "✔ 46 Sims MAX",
+      "📦 Collection Status: Complete & Fixed"
     ],
     gallery: [
       "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779626986/IMG_7689_cbnehh.jpg",
@@ -1603,22 +1545,22 @@ const clouds = [
     ]
   },
   {
-    num: "Cloud \u2116 4", name: "Barbie & Gamer Cloud", price: "$30",
-    level: "Game Level 65 \u00b7 Up to 46 Sims",
+    num: "Cloud № 4", name: "Barbie & Gamer Cloud", price: "$35",
+    level: "Game Level 65 · Up to 46 Sims",
     status: "complete",
     cover: "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779626141/IMG_7586_h1r87h.jpg",
-    desc: "A fusion of luxury glamour and gaming aesthetics combined into one larger, richer world.\n\nThis cloud merges the atmosphere of Gamer Dream Cloud and Barbie Dream Cloud while also including a noticeably larger online pack collection and more event content accumulated up to a later date.\n\n\ud83d\udca1 Why this cloud costs more:\nIncludes more buildings and a larger collection archive than both previous Level 65 clouds.\n\n\ud83d\udecd\ufe0f Includes all content completed up to January 2026.\n\n\ud83c\udfd9\ufe0f Exclusive Builds:\n\u2022 Gamer Lot\n\u2022 City Restaurant Street\n\u2022 City SPA\n\u2022 Horror House\n\u2022 SP House\n\u2022 Barbie Dreamhouse\n\u2022 Adam & Eve Paradise Hotel\n\u2022 Dior Boutique\n\u2022 Louis Vuitton Store\n\u2022 Big Mall Cinema in the Desert\n\u2022 Public Swimming Pool with Clouds Lot",
+    desc: "A fusion of luxury glamour and gaming aesthetics combined into one larger, richer world.\n\nThis cloud merges the atmosphere of Gamer Dream Cloud and Barbie Dream Cloud while also including a noticeably larger event collection content accumulated up to a later date.\n\n💡 Why this cloud costs more:\nIncludes more buildings and a larger collection archive than Gamer Dream Cloud and Barbie Dream Cloud.\n\n🏛️ Exclusive Builds:\n• Gamer Lot\n• City Restaurant Street\n• City SPA\n• Horror House\n• SP House\n• Barbie Dreamhouse\n• Adam & Eve Paradise Hotel\n• Dior Boutique\n• Louis Vuitton Store\n• Big Mall Cinema in the Desert\n• Public Swimming Pool with Clouds Lot",
     features: [
-      "\u2714 VIP Level 15 MAX",
-      "\u2714 Player Level 65",
-      "\u2714 Care Bears Collection",
-      "\u2714 Expanded Online Pack Collection",
-      "\u2714 Exclusive Rewards & Event Items",
-      "\u2714 100M Simoleons & 2.1B LP/SP",
-      "\u2714 12.88M Daily Mailbox Rewards",
-      "\u2714 Platinum Life Orbs & Mystery Keys",
-      "\u2714 46 Sims MAX",
-      "\ud83d\udce6 Collection Status: Complete & Fixed"
+      "✔ VIP Level 15 MAX",
+      "✔ Player Level 65",
+      "✔ Care Bears Collection",
+      "✔ Expanded Online Pack Collection",
+      "✔ Exclusive Rewards & Event Items",
+      "✔ 100M Simoleons & 2.1B LP/SP",
+      "✔ 12.88M Simoleons Daily Mailbox Rewards",
+      "✔ Platinum Life Orbs & Mystery Keys",
+      "✔ 46 Sims MAX",
+      "📦 Collection Status: Complete & Fixed"
     ],
     gallery: [
       "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779626141/IMG_7586_h1r87h.jpg",
@@ -1659,22 +1601,22 @@ const clouds = [
     ]
   },
   {
-    num: "Cloud \u2116 5", name: "Paradise Dream Cloud", price: "$35",
-    level: "Game Level 65 \u00b7 Up to 46 Sims",
+    num: "Cloud № 5", name: "Paradise Dream Cloud", price: "$45",
+    level: "Game Level 65 · Up to 46 Sims",
     status: "complete",
     cover: "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779646871/IMG_7849_e9junp.jpg",
-    desc: "The largest and most content-rich Level 65 cloud in the entire collection.\n\nCreated for players who love variety, decorating, luxury aesthetics, and massive event collections, Paradise Dream Cloud contains significantly more buildings, online packs, and rare event items than all previous Level 65 clouds.\n\n\ud83d\udca1 Why this cloud costs more:\nThis cloud includes the largest Level 65 archive of online packs, event items, and exclusive builds accumulated over years of active gameplay.\n\n\ud83d\udecd\ufe0f Includes all content completed up to February 2026.\n\n\ud83c\udfd9\ufe0f Includes Exclusive Luxury Builds such as:\n\u2022 Saint Meadow Village\n\u2022 Gamer Lot\n\u2022 City Restaurant Street\n\u2022 Barbie Dreamhouse\n\u2022 Adam & Eve Paradise Hotel\n\u2022 Dior Boutique & Louis Vuitton Store\n\u2022 Big Mall Cinema in the Desert\n\u2022 Public Swimming Pool with Clouds Lot\n\u2022 Arabian Luxury Hotel\n\u2022 Pink Dream House\n\u2022 Blue Countryside Cottage\n\u2022 VIP City Apartments\n\u2022 And more",
+    desc: "The largest and most events content-rich game in the entire clouds collection that is at 65 game level.\n\nCreated for players who love variety, decorating, luxury aesthetics, and massive event collections, Paradise Dream Cloud contains significantly more buildings, online packs, and rare event items than all previous Level 65 clouds.\n\n💡 Why this cloud costs more:\nThis cloud includes the largest archive of event items, and exclusive builds accumulated over years of active gameplay.\n\n🏛️ Includes Exclusive Luxury Builds such as:\n• Saint Meadow Village\n• Gamer Lot\n• City Restaurant Street\n• Barbie Dreamhouse\n• Adam & Eve Paradise Hotel\n• Dior Boutique & Louis Vuitton Store\n• Big Mall Cinema in the Desert\n• Public Swimming Pool with Clouds Lot\n• Arabian Luxury Hotel\n• Pink Dream House\n• Blue Countryside Cottage\n• VIP City Apartments\n• And more",
     features: [
-      "\u2714 VIP Level 15 MAX",
-      "\u2714 Player Level 65",
-      "\u2714 Care Bears Collection",
-      "\u2714 Massive Event & Online Pack Collection",
-      "\u2714 Exclusive Rewards, Furniture, Fashion Items, Cars & Pets",
-      "\u2714 100M Simoleons & 2.1B LP/SP",
-      "\u2714 12.88M Daily Mailbox Rewards",
-      "\u2714 Platinum Life Orbs & Mystery Keys",
-      "\u2714 46 Sims MAX",
-      "\ud83d\udce6 Collection Status: Complete & Fixed"
+      "✔ VIP Level 15 MAX",
+      "✔ Player Level 65",
+      "✔ Care Bears Collection",
+      "✔ Massive Event & Online Pack Collection",
+      "✔ Exclusive Rewards, Furniture, Fashion Items, Cars & Pets",
+      "✔ 100M Simoleons & 2.1B LP/SP",
+      "✔ 12.88M Simoleons Daily Mailbox Rewards",
+      "✔ Platinum Life Orbs & Mystery Keys",
+      "✔ 46 Sims MAX",
+      "📦 Collection Status: Complete & Fixed"
     ],
     gallery: [
       "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779646871/IMG_7849_e9junp.jpg",
@@ -1719,21 +1661,21 @@ const clouds = [
     ]
   },
   {
-    num: "Cloud \u2116 6", name: "Empty Golden Cloud", price: "$33",
-    level: "Game Level 75 MAX \u00b7 Up to 53 Sims",
+    num: "Cloud № 6", name: "Empty Golden Cloud", price: "$33",
+    level: "Game Level 75 MAX · Up to 53 Sims",
     status: "complete",
     cover: "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779815150/IMG_7948_y4g2bl.jpg",
-    desc: "A Level 75 MAX blank world designed for players who want total creative freedom while still owning a rich collection of online packs and event rewards.\n\n\ud83d\udca1 Why this cloud costs more than Empty Game Cloud:\nIt starts fully unlocked at Level 75 MAX and contains a significantly larger archive of online packs and rare items.\n\n\ud83d\udecd\ufe0f Includes all content completed up to February 2026.",
+    desc: "A Level 75 MAX blank world designed for players who want total creative freedom while still owning a rich collection of online packs and event rewards.\n\n💡 Why this cloud costs more than Empty Game Cloud:\nIt starts fully unlocked at Level 75 MAX and contains a significantly larger archive of online packs, rare and past events items.",
     features: [
-      "\u2714 VIP Level 15 MAX",
-      "\u2714 Player Level 75 MAX",
-      "\u2714 Care Bears Collection",
-      "\u2714 Large Event & Online Pack Collection",
-      "\u2714 100M Simoleons & 2.1B LP/SP",
-      "\u2714 12.88M Daily Mailbox Rewards",
-      "\u2714 Platinum Life Orbs & Mystery Keys",
-      "\u2714 53 Sims MAX",
-      "\ud83d\udce6 Collection Status: Complete & Fixed"
+      "✔ VIP Level 15 MAX",
+      "✔ Player Level 75 MAX",
+      "✔ Care Bears Collection",
+      "✔ Large Event & Online Pack Collection",
+      "✔ 100M Simoleons & 2.1B LP/SP",
+      "✔ 12.88M Daily Mailbox Rewards",
+      "✔ Platinum Life Orbs & Mystery Keys",
+      "✔ 53 Sims MAX",
+      "📦 Collection Status: Complete & Fixed"
     ],
     gallery: [
       "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779815150/IMG_7948_y4g2bl.jpg",
@@ -1741,23 +1683,23 @@ const clouds = [
     ]
   },
   {
-    num: "Cloud \u2116 7", name: "Platinum VIP Cloud (Empty)", price: "$45",
-    level: "Game Level 75 MAX \u00b7 Up to 53 Sims",
+    num: "Cloud № 7", name: "Platinum VIP Cloud (Empty)", price: "$45",
+    level: "Game Level 75 MAX · Up to 53 Sims",
     status: "active",
     cover: "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779814457/IMG_7944_y0m50a.jpg",
-    desc: "A premium empty luxury cloud created for serious builders and collectors who want maximum freedom together with one of the richest online pack collections among all empty worlds.\n\nBuilt over 13+ years of gameplay history, this cloud contains an enormous archive of rare online packs and event rewards that are no longer obtainable normally.\n\n\ud83d\udca1 Why this cloud costs more:\nUnlike the Empty Golden Cloud, Platinum VIP includes a significantly larger collection of online packs and continues to be actively updated with event rewards to this day.\n\n\ud83d\udecd\ufe0f Continues receiving new event item updates.",
+    desc: "A premium empty luxury cloud created for serious builders and collectors who want maximum freedom together with one of the richest online pack collections among all empty worlds.\n\nBuilt over 13+ years of gameplay history, this cloud contains an enormous archive of rare online packs and event rewards that are no longer obtainable normally.\n\n💡 Why this cloud costs more:\nUnlike the Empty Golden Cloud, Platinum VIP includes a significantly larger collection of online packs and continues to be actively updated with event rewards to this day.\n\n🛍️ Continues receiving new event item updates.",
     features: [
-      "\u2714 VIP Level 15 MAX",
-      "\u2714 Player Level 75 MAX",
-      "\u2714 Care Bears Collection",
-      "\u2714 Massive Online Pack Archive",
-      "\u2714 Rare Event Rewards",
-      "\u2714 100M Simoleons & 2.1B LP/SP",
-      "\u2714 12.88M Daily Mailbox Rewards",
-      "\u2714 Platinum Life Orbs & Mystery Keys",
-      "\u2714 53 Sims MAX",
-      "\u2705 Event Items Continuously Updated",
-      "\u2705 Online Packs Complete Until April 2026"
+      "✔ VIP Level 15 MAX",
+      "✔ Player Level 75 MAX",
+      "✔ Care Bears Collection",
+      "✔ Massive Online Pack Archive",
+      "✔ Rare Event Rewards",
+      "✔ 100M Simoleons & 2.1B LP/SP",
+      "✔ 12.88M Simoleons Daily Mailbox Rewards",
+      "✔ Platinum Life Orbs & Mystery Keys",
+      "✔ 53 Sims MAX",
+      "✅ Event Items Continuously Updated",
+      "✅ Online Packs Complete Until February 2026"
     ],
     gallery: [
       "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779814457/IMG_7944_y0m50a.jpg",
@@ -1765,22 +1707,23 @@ const clouds = [
     ]
   },
   {
-    num: "Cloud \u2116 8", name: "Diamond Elite Cloud", price: "$65",
-    level: "Game Level 75 MAX \u00b7 Up to 53 Sims",
+    num: "Cloud № 8", name: "Diamond Elite Cloud", price: "$65",
+    level: "Game Level 75 MAX · Up to 53 Sims",
     status: "active",
     cover: "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779703864/IMG_7889_alaj7o.jpg",
-    desc: "One of the most luxurious and visually breathtaking clouds ever created.\n\nDiamond Elite combines a gigantic rare online pack archive with 28 exclusive luxury buildings designed around fantasy, magic, holidays, luxury lifestyle, and immersive storytelling.\n\n\ud83d\udca1 Why this cloud costs significantly more:\nIt includes one of the largest online pack collections in the entire range together with 28 luxury pre-built themed locations already fully completed and actively updating with new event prizes.\n\n\ud83d\udecd\ufe0f Continues receiving new event item updates.\n\n\u2728 Highlights:\n\u2714 28 Luxury Exclusive Buildings\n\u2714 Massive Rare Item Collection\n\u2714 Fantasy & Luxury Atmosphere\n\u2714 One of the Largest Online Pack Archives\n\u2714 Active Event Updates\n\u2714 Collector Prestige",
+    desc: "One of the most luxurious and visually breathtaking clouds ever created.\n\nDiamond Elite combines a gigantic rare online pack archive with 28 exclusive luxury buildings designed around fantasy, magic, holidays, luxury lifestyle, and immersive storytelling.\n\n💡 Why this cloud costs significantly more:\nIt includes one of the largest online pack collections in the entire range together with 28 luxury pre-built themed locations already fully completed and actively updating with new events prizes.\n\n✨ Highlights:\n✔ 28 Luxury Exclusive Buildings\n✔ Massive Rare Item Collection\n✔ Fantasy & Luxury Atmosphere\n✔ One of the Largest Online Pack Archives\n✔ Active Event Updates\n✔ Collector Prestige",
     features: [
-      "\u2714 VIP Level 15 MAX",
-      "\u2714 Player Level 75 MAX",
-      "\u2714 53 Sims MAX",
-      "\u2714 28 Luxury Exclusive Buildings",
-      "\u2714 100M Simoleons & 2.1B LP/SP",
-      "\u2714 Platinum Life Orbs & Mystery Keys",
-      "\u2714 Care Bears Collection",
-      "\u2714 Luxury Furniture, Fashion, Cars & Pets",
-      "\u2705 Event Items Continuously Updated",
-      "\u2705 Online Packs Complete Until April 2026"
+      "✔ VIP Level 15 MAX",
+      "✔ Player Level 75 MAX",
+      "✔ 53 Sims MAX",
+      "✔ 28 Luxury Exclusive Buildings",
+      "✔ 100M Simoleons & 2.1B LP/SP",
+      "✔ 12.88M Simoleons Daily Mailbox Rewards",
+      "✔ Platinum Life Orbs & Mystery Keys",
+      "✔ Care Bears Collection",
+      "✔ Luxury Furniture, Fashion, Cars & Pets",
+      "✅ Event Items Continuously Updated",
+      "✅ Online Packs Complete Until March 2026"
     ],
     gallery: [
       "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779703864/IMG_7889_alaj7o.jpg",
@@ -1865,25 +1808,26 @@ const clouds = [
     ]
   },
   {
-    num: "Cloud \u2116 9 \u00b7 Ultimate", name: "Royal Supreme MAX", price: "$85",
-    level: "Game Level 75 MAX \u00b7 Up to 53 Sims",
+    num: "Cloud № 9 · Ultimate", name: "Royal Supreme MAX", price: "$85",
+    level: "Game Level 75 MAX · Up to 53 Sims",
     status: "active",
     cover: "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779918295/IMG_7972_y4hfov.jpg",
-    desc: "The most advanced, luxurious, and content-rich cloud in the entire collection.\n\nROYAL SUPREME MAX is the crown jewel of the Sims FreePlay cloud collection — created for players who want absolutely everything the game has ever offered together with continuous future expansion.\n\nOver $8,000 USD has been invested into online packs alone, creating one of the largest and rarest collections imaginable.\n\nUnlike all other clouds, this world never stops evolving.\n\u2728 Every new online pack release is added\n\u2728 Event prizes continue being collected\n\u2728 New luxury builds continue being developed\n\u2728 The city constantly expands and grows in value\n\n\ud83d\udca1 Why this is the most expensive cloud:\nIt contains the largest online pack archive, the largest luxury city, the most exclusive custom builds, and continuous future updates with every new release.\n\n\u26a0\ufe0f Please note: some houses and builds may still be under active development or refinement at the time of access, as this world is continuously evolving and never considered fully finished.\n\nThis is not simply a cloud save — it is a living luxury Sims universe.",
+    desc: "The most advanced, luxurious, and content-rich cloud in the entire collection.\n\nROYAL SUPREME MAX is the crown jewel of the Sims FreePlay cloud collection — created for players who want absolutely everything the game has ever offered together with continuous future expansion.\n\nOver $8,000 USD has been invested into online packs alone, creating one of the largest and rarest collections imaginable.\n\nUnlike all other clouds, this world never stops evolving.\n✨ Every new online pack release is added\n✨ Event prizes continue being collected\n✨ New luxury builds continue being developed\n✨ The city constantly expands and grows in value\n\n💡 Why this is the most expensive cloud:\nIt contains the largest online pack archive, the largest luxury city, the most exclusive custom builds, and continuous future updates with every new release.\n\n⚠️ Please note: some houses and builds may still be under active development or refinement at the time of access, as this world is continuously evolving and never considered fully finished.\n\nThis is not simply a cloud save — it is a living luxury Sims universe.",
     features: [
-      "\u2714 VIP Level 15 MAX",
-      "\u2714 Player Level 75 MAX",
-      "\u2714 53 Sims MAX",
-      "\u2714 Largest Online Pack Collection Available",
-      "\u2714 Massive Luxury City",
-      "\u2714 Exclusive Custom Buildings",
-      "\u2714 Continuous Updates",
-      "\u2714 Rare Event Rewards",
-      "\u2714 Luxury Furniture, Fashion, Cars & Pets",
-      "\u2714 100M Simoleons & 2.1B LP/SP",
-      "\u2714 Platinum Life Orbs & Mystery Keys",
-      "\u2705 Event Items Continuously Updated",
-      "\u2705 Online Packs Continuously Updated"
+      "✔ VIP Level 15 MAX",
+      "✔ Player Level 75 MAX",
+      "✔ 53 Sims MAX",
+      "✔ Largest Online Pack Collection Available",
+      "✔ Massive Luxury City",
+      "✔ Exclusive Custom Buildings",
+      "✔ Continuous Updates",
+      "✔ Rare Event Rewards",
+      "✔ Luxury Furniture, Fashion, Cars & Pets",
+      "✔ 100M Simoleons & 2.1B LP/SP",
+      "✔ 12.88M Simoleons Daily Mailbox Rewards",
+      "✔ Platinum Life Orbs & Mystery Keys",
+      "✅ Event Items Continuously Updated",
+      "✅ Online Packs Continuously Updated"
     ],
     gallery: [
       "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779918295/IMG_7972_y4hfov.jpg"
@@ -1896,11 +1840,10 @@ function openCloud(i) {
   const statusHtml = c.status === 'active'
     ? '<span class="cloud-status status-active">✅ Actively Updated</span>'
     : '<span class="cloud-status status-complete">✓ Complete Collection</span>';
-  const galleryHtml = c.gallery && c.gallery.length
+  const galleryHtml = c.gallery.length
     ? c.gallery.map(src => `<img src="${src}" alt="" loading="lazy" style="width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;cursor:pointer;">`).join('')
     : [1,2,3,4].map(() => `<div class="modal-gallery-placeholder">🌸</div>`).join('');
 
-  const descHtml = (c.desc || '').split('\n').map(line => line ? `<p style="margin-bottom:8px">${line}</p>` : '<br>').join('');
   document.getElementById('modalBody').innerHTML = `
     <div class="modal-header">
       <div class="modal-num">${c.num}</div>
@@ -1909,13 +1852,10 @@ function openCloud(i) {
       ${statusHtml}
       <div class="modal-price">${c.price} <span style="font-size:1rem;color:var(--text-light);font-family:'Lato',sans-serif">USD</span></div>
     </div>
-    <div class="modal-desc" style="font-size:0.88rem;color:var(--text-mid);line-height:1.8;margin-bottom:20px">${descHtml}</div>
-    <div class="modal-gallery" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:8px;margin:20px 0">${galleryHtml}</div>
-    <ul class="modal-features">${c.features.map(f=>`<li style="padding:5px 0;border-bottom:1px solid var(--pink-soft);font-size:0.85rem;color:var(--text-mid)">${f}</li>`).join('')}</ul>
-    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px;">
-      <a href="https://ko-fi.com/cherrybonbon555" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:var(--cherry);color:white;padding:13px 24px;border-radius:50px;text-decoration:none;font-family:'Lato',sans-serif;font-size:0.82rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;box-shadow:0 4px 16px rgba(192,56,90,0.35);">🩷 Buy via Ko-fi</a>
-      <a href="https://paypal.me/blackcodeblackness" target="_blank" style="display:inline-flex;align-items:center;gap:8px;background:#0070ba;color:white;padding:13px 24px;border-radius:50px;text-decoration:none;font-family:'Lato',sans-serif;font-size:0.82rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:600;box-shadow:0 4px 16px rgba(0,112,186,0.35);">💙 Buy via PayPal</a>
-    </div>
+    <div class="modal-desc">${(c.desc||'').split('\n').map(line=>line?`<p style="margin-bottom:8px">${line}</p>`:'<br>').join('')}</div>
+    <div class="modal-gallery">${galleryHtml}</div>
+    <ul class="modal-features">${c.features.map(f=>`<li>${f}</li>`).join('')}</ul>
+    <a href="https://ko-fi.com/cherrybonbon555" target="_blank" class="modal-buy">🍒 Buy This Cloud</a>
   `;
   document.getElementById('cloudModal').classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -1933,41 +1873,47 @@ const obs = new IntersectionObserver((entries) => {
   entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.1 });
 document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
 
-// Stars animation
+<script>
+// Animated stars
 try {
   const canvas = document.getElementById('stars-canvas');
   if (canvas) {
     const ctx = canvas.getContext('2d');
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    window.addEventListener('resize', () => {
+    let stars = [];
+    function resize() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-    });
-    const stars = Array.from({length: 60}, () => ({
-      x: Math.random() * window.innerWidth,
-      y: Math.random() * window.innerHeight * 0.5,
-      r: Math.random() * 1.5 + 0.3,
-      phase: Math.random() * Math.PI * 2,
-      speed: Math.random() * 0.01 + 0.003
-    }));
-    let t = 0;
-    function drawStars() {
-      t += 0.016;
+      stars = [];
+      const count = Math.floor((canvas.width * canvas.height) / 9000);
+      for (let i = 0; i < count; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          r: Math.random() * 1.5 + 0.3,
+          a: Math.random(),
+          sp: Math.random() * 0.02 + 0.005
+        });
+      }
+    }
+    function draw() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       stars.forEach(s => {
-        const a = 0.3 + 0.7 * Math.abs(Math.sin(t * s.speed + s.phase));
+        s.a += s.sp;
+        const op = (Math.sin(s.a) + 1) / 2 * 0.6 + 0.1;
         ctx.beginPath();
         ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(255,255,255,' + a + ')';
+        ctx.fillStyle = `rgba(255, 200, 220, ${op})`;
         ctx.fill();
       });
-      requestAnimationFrame(drawStars);
+      requestAnimationFrame(draw);
     }
-    drawStars();
+    resize();
+    draw();
+    window.addEventListener('resize', resize);
   }
-} catch(e) {}
+} catch(e) { console.log('stars skipped'); }
 </script>
 
 </body>
