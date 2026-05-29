@@ -123,13 +123,14 @@ transition: color 0.3s;
 }
 .nav-links a:hover { color: var(–cherry); }
 .nav-cta {
-background: var(–cherry);
+background: #e85d8a !important;
 color: white !important;
 padding: 8px 20px !important;
 border-radius: 50px;
+box-shadow: 0 3px 12px rgba(232,93,138,0.45);
 transition: background 0.3s, transform 0.2s !important;
 }
-.nav-cta:hover { background: var(–cherry-dark) !important; transform: translateY(-1px) !important; }
+.nav-cta:hover { background: #d4456f !important; transform: translateY(-1px) !important; }
 
 /* ─── HERO ─── */
 .hero {
@@ -629,7 +630,7 @@ margin-bottom: 12px;
 .pay-link {
 display: inline-block;
 background: var(–cherry);
-color: white;
+color: #ffd6e7;
 padding: 13px 28px;
 border-radius: 50px;
 text-decoration: none;
@@ -674,14 +675,14 @@ border: 1.5px solid rgba(192,56,90,0.5);
 border-radius: 16px;
 padding: 20px 30px;
 text-decoration: none;
-color: var(–cherry-dark);
+color: #e85d8a;
 transition: all 0.3s;
 }
 .contact-link:hover { background: rgba(255,255,255,0.22); transform: translateY(-3px); }
 .contact-link-icon { font-size: 1.8rem; }
 .contact-link-text { text-align: left; }
-.contact-link-text .label { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 1; color: var(–cherry-dark); font-weight: 700; font-family: ‘Lato’, sans-serif; }
-.contact-link-text .name { font-family: ‘Cormorant Garamond’, serif; font-size: 1.1rem; color: var(–cherry-dark); font-weight: 600; }
+.contact-link-text .label { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 1; color: #e85d8a; font-weight: 700; font-family: ‘Lato’, sans-serif; }
+.contact-link-text .name { font-family: ‘Cormorant Garamond’, serif; font-size: 1.1rem; color: #e85d8a; font-weight: 600; }
 .contact-note {
 color: var(–cherry-dark);
 font-style: italic;
@@ -798,7 +799,7 @@ display: flex; align-items: center; gap: 10px;
 .modal-buy {
 display: inline-block;
 background: var(–cherry);
-color: white;
+color: #ffd6e7;
 padding: 14px 36px;
 border-radius: 50px;
 text-decoration: none;
@@ -939,6 +940,7 @@ nav, section, footer, .hero { position: relative; z-index: 1; }
 .cloud-card .cloud-num, .cloud-card .cloud-level { color: #6b6b6b !important; }
 .cloud-card .cloud-price { color: var(–cherry) !important; }
 .cloud-card .cloud-cta { color: var(–cherry) !important; }
+.modal-buy-paypal { background: #0070ba !important; color: #ffd6e7 !important; box-shadow: 0 6px 24px rgba(0,112,186,0.35) !important; }
 </style>
 
 </head>
@@ -1811,7 +1813,239 @@ const clouds = [
       "✅ Online Packs Continuously Updated"
     ],
     gallery: [
-      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779918295/IMG_7972_y4hfov.jpg"
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1779918295/IMG_7972_y4hfov.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780059614/IMG_7390_jutxa0.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780059615/IMG_7391_yc2wez.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780059653/IMG_6126_iompse.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780059656/IMG_6132_mnsems.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780059704/IMG_6724_xjdlqz.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780059758/IMG_6584_ezppoy.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780059830/IMG_4892_qit0ec.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780059832/IMG_4894_w2kb06.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780059833/IMG_5213_e2kwu9.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780059835/IMG_5219_uxlk9i.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780059836/IMG_5202_s0ohie.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780059837/IMG_5204_ugheff.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780059838/IMG_5211_l0pmlm.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780059838/IMG_5212_wri6x4.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780059911/IMG_3378_hibpsa.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780059971/IMG_7773_hnp1ca.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780059972/IMG_7774_ypknrd.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780059973/IMG_7777_u0fnqx.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780059973/IMG_7775_qt7oca.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780059974/IMG_7778_auzk3i.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780059974/IMG_7779_qsfl2k.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780059975/IMG_7781_esjxy8.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780059977/IMG_7776_yqgfad.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780060052/IMG_0298_k0eus4.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780060053/IMG_0299_y3tzq7.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780061165/IMG_8008_juctdh.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780061166/IMG_8007_hlafpz.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780061167/IMG_8006_dmb3ja.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780061192/IMG_8005_cuhvmt.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780061193/IMG_7991_wifzcn.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780061194/IMG_7992_u1tnqs.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780061259/IMG_8001_x4gfz5.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780061260/IMG_7999_cxmgzb.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780061261/IMG_7995_ydzekd.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780061368/IMG_8009_vyyr4n.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780061369/IMG_8010_lfhvig.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780061494/IMG_7397_qxu7r4.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780061507/IMG_7403_d5fs0z.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780061528/IMG_1147_qmp6hh.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780061529/IMG_1151_m4k0ko.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780061530/IMG_1163_dguq2k.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780061929/IMG_7709_jjqomx.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780061930/IMG_7707_nk26pl.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780061931/IMG_7708_zrlnga.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780062059/IMG_7742_kbatuf.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780062060/IMG_8019_lxomrb.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780062062/IMG_8020_wk5ns5.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780062062/IMG_8025_elyh3d.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780062102/IMG_8249_mr4g5p.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780062103/IMG_8250_ur9hy6.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780062104/IMG_8251_ddtcxe.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780062152/IMG_1127_irp1oc.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780062152/IMG_1105_imws8w.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780062153/IMG_1103_vymtjl.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780062177/IMG_1094_as5jnr.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780062180/IMG_1101_dcpqm9.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780062181/IMG_1102_tjib6e.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780062257/IMG_7658_fqxw2y.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780062304/IMG_7395_vxbnfb.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780062305/IMG_7394_l6jevd.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780062306/IMG_7396_fmxxir.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780062307/IMG_7393_l2x0h4.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780062490/IMG_8972_g69lvm.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780062492/IMG_8973_fosy8e.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780062520/IMG_1903_bvfp8h.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780062627/IMG_8976_msg7su.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780062628/IMG_8978_ewrkuf.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780062629/IMG_8967_p0elsk.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780062631/IMG_8981_yqc6lp.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780062640/IMG_7768_q7xdxo.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780062642/IMG_7766_dchiw2.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780062644/IMG_7767_mypeqb.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780062645/IMG_7765_qudkzq.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780062647/IMG_7770_vvwlvs.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780062649/IMG_7769_pr4iz5.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780062736/IMG_0295_qyhkmb.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780062738/IMG_0294_tabyf8.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780062842/IMG_7641_cblobn.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780062872/IMG_0259_m35vyh.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780062873/IMG_0260_eytkqi.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780062924/IMG_7740_wqbhsy.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780062943/IMG_7741_vxblnu.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780062946/IMG_7742_vwe7ns.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780062948/IMG_7743_ks38gt.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780062962/IMG_8801_uhi8vs.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780063040/IMG_8812_amfdfm.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780063042/IMG_8813_xdiwjh.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780063044/IMG_8804_zhvv1t.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780063046/IMG_8875_gec4gq.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780063049/IMG_8877_vn8b0v.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780063051/IMG_8878_z2s2qu.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780063053/IMG_8880_z3utel.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780063056/IMG_8881_lda36w.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780063058/IMG_8882_xankzt.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780063061/IMG_8883_yv6lcv.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780063063/IMG_8885_zxwssg.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780063066/IMG_8886_qmozas.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780063068/IMG_8801_v69iyy.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780063152/IMG_4205_bgs25b.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780063153/IMG_4161_fze5kt.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780063156/IMG_4207_prz09v.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780063158/IMG_4211_aaqy9u.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780063160/IMG_4216_ddperx.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780063163/IMG_4217_lw5hfa.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780063333/IMG_7697_m8afnr.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780063334/IMG_7698_kh8seb.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780063406/IMG_7702_o9j7sh.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780063407/IMG_7703_xveigq.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780063410/IMG_7701_mhyktl.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780063437/IMG_7745_wsnx0m.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780063440/IMG_7746_xl5wlm.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780063457/IMG_7747_wzwtcg.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780063461/IMG_7748_f9ldfd.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780063464/IMG_7749_wj5tej.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780063468/IMG_7750_g1etnz.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780063471/IMG_7751_ijml5e.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780063703/IMG_7728_n5amxt.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780063705/IMG_7729_gfoy50.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780063712/IMG_7731_vhg0oh.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780063715/IMG_7732_nf8pa9.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780063718/IMG_7733_g7enwd.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780063721/IMG_7734_uwnwlf.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780069904/IMG_6862_zbzoac.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780070149/IMG_8012_qzgpkt.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780070150/IMG_8011_mdpush.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780070213/IMG_4603_gx6cuy.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780070271/IMG_9020_uiimn0.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780070274/IMG_9019_yqadjt.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780070277/IMG_9024_n2blol.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780070281/IMG_9026_jrhoau.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780070284/IMG_9034_cemtrl.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780071474/IMG_8013_wjlqjo.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780071474/IMG_8014_n2njmn.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780071477/IMG_8015_wvjand.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780071481/IMG_8016_kverwy.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780071484/IMG_8017_ojjujl.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780071488/IMG_8018_kc4mrm.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780071491/IMG_8019_xzbch4.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780071714/IMG_0707_qwtpqc.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780071717/IMG_0708_eya7ff.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780071719/IMG_0709_fvfq8e.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780071888/IMG_1884_znbjrp.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072201/IMG_1879_gm9c1x.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072204/IMG_1876_d1qg2f.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072208/IMG_1877_xkseg9.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072216/IMG_1845_k2tml6.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072219/IMG_1844_wvwi4s.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072223/IMG_1872_kz1oz2.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072231/IMG_1842_smbuol.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072234/IMG_1523_owjhik.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072238/IMG_1670_trbuga.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072243/IMG_1668_itf1dq.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072246/IMG_1579_eotmep.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072250/IMG_1577_fw8lnw.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072258/IMG_1883_ncj9xj.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072533/IMG_4478_yndic6.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072536/IMG_4480_zd3b8s.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072541/IMG_7646_pktmhu.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072543/IMG_7653_yutbbd.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072548/IMG_7649_pckuti.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072554/IMG_7647_p8bjot.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072626/IMG_7918_vl3qou.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072632/IMG_7917_aormhu.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072637/IMG_7915_n8fepk.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072642/IMG_7914_fmrip3.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072714/IMG_7804_dbxhow.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072772/IMG_7805_exgu7v.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072776/IMG_7807_kkb0dl.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072781/IMG_7808_tttxy4.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072785/IMG_7810_sblcyg.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072846/IMG_7811_wgwcck.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072910/IMG_7815_i4a2j4.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072914/IMG_7814_l58hue.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072918/IMG_7813_l69nrv.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072923/IMG_7816_xcigvr.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072927/IMG_7820_lyyvmp.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072931/IMG_7821_xd168u.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072935/IMG_7822_qfkveh.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072940/IMG_7824_jo4kzw.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072945/IMG_7823_ofu0zz.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072949/IMG_7825_l7vmck.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072954/IMG_7827_icktgc.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072958/IMG_7828_fr6vbo.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072963/IMG_7832_qiyple.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780072967/IMG_7831_x00odb.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780073077/IMG_7795_payalg.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780073110/IMG_7799_nn3lpd.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780073114/IMG_7800_br1eve.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780073119/IMG_7801_h8mbki.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780073124/IMG_7802_koztga.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780073153/IMG_7794_eqssrw.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780073157/IMG_7792_nv5ig6.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780073162/IMG_7791_u9rox4.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780073167/IMG_7790_r7my88.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780073171/IMG_7789_yaiyx4.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780073176/IMG_7788_lzvhly.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780073181/IMG_7787_ywumhe.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780073185/IMG_7786_vcffu8.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780073191/IMG_7785_ax4ck2.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780073195/IMG_7784_df1fr1.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780073200/IMG_7783_s9tmkc.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780073207/IMG_7771_cudht3.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780073265/IMG_7626_i8hklh.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780073269/IMG_7627_cfokcp.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780073274/IMG_7628_mqpyid.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780073279/IMG_7629_ddaen1.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780073283/IMG_7630_qcojrl.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780073325/IMG_7617_uvfzwp.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780073330/IMG_7618_dbcl6u.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780073335/IMG_7619_tgvqrf.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780073339/IMG_7620_dmiahw.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780073345/IMG_7621_fd0phb.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780073349/IMG_7622_vuq6i2.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780073353/IMG_7623_ga1tvz.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780073358/IMG_7624_cck9wp.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780073392/IMG_7752_r7ha9l.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780073396/IMG_7753_vzqt7h.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780073401/IMG_7754_zhbwmt.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780073406/IMG_7755_ws7jtr.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780073411/IMG_7756_s44ypc.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780073415/IMG_7757_pvlauq.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780073421/IMG_7758_xdu77t.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780073426/IMG_7759_rshey0.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780077705/IMG_3673_w68dap.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780077906/IMG_8021_qljazl.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780077781/IMG_8028_yivari.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780077902/IMG_8027_m28ttz.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780077908/IMG_8023_anjo78.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780077908/IMG_8026_zfvmty.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780077909/IMG_8024_ebv7ef.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780077909/IMG_8025_nqw9xm.jpg",
+      "https://res.cloudinary.com/dcbueejwf/image/upload/q_auto/f_auto/v1780077909/IMG_8022_f0hr8j.jpg"
     ]
   }
 ];
@@ -1836,7 +2070,10 @@ function openCloud(i) {
     <div class="modal-desc">${(c.desc||'').split('\n').map(line=>line?`<p style="margin-bottom:8px">${line}</p>`:'<br>').join('')}</div>
     <div class="modal-gallery">${galleryHtml}</div>
     <ul class="modal-features">${c.features.map(f=>`<li>${f}</li>`).join('')}</ul>
-    <a href="https://ko-fi.com/cherrybonbon555" target="_blank" class="modal-buy">🍒 Buy This Cloud</a>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;">
+      <a href="https://ko-fi.com/cherrybonbon555" target="_blank" class="modal-buy">🍒 Buy via Ko-fi</a>
+      <a href="https://paypal.me/blackcodeblackness" target="_blank" class="modal-buy modal-buy-paypal">💙 Buy via PayPal</a>
+    </div>
   `;
   document.getElementById('cloudModal').classList.add('open');
   document.body.style.overflow = 'hidden';
@@ -1882,10 +2119,10 @@ try {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       stars.forEach(s => {
         s.a += s.sp;
-        const op = (Math.sin(s.a) + 1) / 2 * 0.6 + 0.1;
+        const op = (Math.sin(s.a) + 1) / 2 * 0.7 + 0.2;
         ctx.beginPath();
         ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 200, 220, ${op})`;
+        ctx.fillStyle = `rgba(255, 240, 250, ${op})`;
         ctx.fill();
       });
       requestAnimationFrame(draw);
