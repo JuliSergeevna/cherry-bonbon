@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 
 <html lang="en">
 <head>
@@ -36,8 +36,6 @@ background: linear-gradient(180deg, #fde8ee 0%, #fff5f8 40%, #f5e6ff 70%, #fde8e
 color: var(–text-dark);
 overflow-x: hidden;
 }
-/* keep content above the stars canvas */
-nav, section, footer { position: relative; z-index: 2; }
 
 /* ─── FLOATING DECORATIONS ─── */
 .deco-float {
@@ -106,10 +104,10 @@ transition: background 0.3s, transform 0.2s !important;
 /* ─── HERO ─── */
 .hero {
 min-height: 100vh;
-display: flex; align-items: center;
+display: flex; align-items: flex-end;
 position: relative;
 overflow: hidden;
-padding-top: 64px;
+padding-top: 0;
 }
 .hero-bg {
 position: absolute; inset: 0;
@@ -636,9 +634,9 @@ text-align: center;
 .contact-links { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; margin-top: 40px; }
 .contact-link {
 display: flex; align-items: center; gap: 12px;
-background: rgba(255,255,255,0.12);
+background: rgba(255,255,255,0.30);
 backdrop-filter: blur(10px);
-border: 1px solid rgba(255,255,255,0.25);
+border: 1px solid rgba(255,255,255,0.55);
 border-radius: 16px;
 padding: 20px 30px;
 text-decoration: none;
@@ -648,7 +646,7 @@ transition: all 0.3s;
 .contact-link:hover { background: rgba(255,255,255,0.22); transform: translateY(-3px); }
 .contact-link-icon { font-size: 1.8rem; }
 .contact-link-text { text-align: left; }
-.contact-link-text .label { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.7; font-family: ‘Lato’, sans-serif; }
+.contact-link-text .label { font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; opacity: 0.95; font-family: ‘Lato’, sans-serif; }
 .contact-link-text .name { font-family: ‘Cormorant Garamond’, serif; font-size: 1.1rem; }
 .contact-note {
 color: rgba(255,255,255,0.7);
@@ -899,88 +897,15 @@ border: 1px solid rgba(255,255,255,0.3); backdrop-filter: blur(12px);
 .hero .btn-primary, .hero .btn-secondary { text-align: center; }
 }
 
-/* ─── DREAMY SKY BACKGROUND ─── */
-#dreamy-bg {
-position: fixed; inset: 0; z-index: -2;
-background: linear-gradient(180deg, #c8b4e8 0%, #b8d4f0 20%, #a8e4e8 35%, #f0c8d8 55%, #f8d8e8 70%, #fce8f0 85%, #fff0f5 100%);
-animation: skyShift 12s ease-in-out infinite alternate;
-}
-@keyframes skyShift {
-0% { filter: hue-rotate(0deg) brightness(1); }
-50% { filter: hue-rotate(15deg) brightness(1.05); }
-100% { filter: hue-rotate(-10deg) brightness(0.97); }
-}
-/* ─── SVG CLOUDS FIXED ─── */
-#svg-clouds {
-position: fixed; inset: 0; z-index: 0;
-pointer-events: none; width: 100%; height: 100%;
-}
-.svg-cloud {
-fill: white; opacity: 0.85;
-animation: floatCloud ease-in-out infinite alternate;
-}
-@keyframes floatCloud {
-0% { transform: translateX(0px) translateY(0px); }
-100% { transform: translateX(18px) translateY(-12px); }
-}
-/* ─── CLOUDS DRIFT LAYER ─── */
-#clouds-layer {
-position: fixed; inset: 0; z-index: 0;
-pointer-events: none; overflow: hidden;
-}
-/* Make sections semi-transparent so dreamy bg shows through */
-.about-section { background: rgba(255,255,255,0.55) !important; }
-.how-section { background: rgba(253,240,248,0.50) !important; }
-.clouds-section { background: rgba(255,255,255,0.55) !important; }
-.includes-section { background: rgba(253,246,240,0.50) !important; }
-.payment-section { background: rgba(255,255,255,0.55) !important; }
-#reviews { background: rgba(255,245,248,0.55) !important; }
-.notice-bar { background: rgba(253,232,238,0.85) !important; }
-nav { background: rgba(253,246,240,0.85) !important; }
+nav, section, footer, .hero { position: relative; z-index: 1; }
 </style>
 
 </head>
 <body>
 
-<!-- Dreamy animated sky background -->
+<!-- Stars background -->
 
-<div id="dreamy-bg"></div>
-<canvas id="stars-canvas"></canvas>
-
-<!-- SVG Clouds always visible -->
-
-<svg id="svg-clouds" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
-  <g class="svg-cloud" style="animation-duration:6s; animation-delay:0s;">
-    <ellipse cx="120" cy="80" rx="80" ry="45"/><ellipse cx="170" cy="65" rx="60" ry="40"/><ellipse cx="80" cy="75" rx="50" ry="35"/><ellipse cx="220" cy="78" rx="55" ry="35"/>
-  </g>
-  <g class="svg-cloud" style="animation-duration:8s; animation-delay:-2s;">
-    <ellipse cx="1300" cy="60" rx="90" ry="50"/><ellipse cx="1360" cy="45" rx="65" ry="42"/><ellipse cx="1250" cy="55" rx="60" ry="38"/><ellipse cx="1410" cy="58" rx="50" ry="32"/>
-  </g>
-  <g class="svg-cloud" style="animation-duration:7s; animation-delay:-3s; opacity:0.75;">
-    <ellipse cx="60" cy="280" rx="70" ry="40"/><ellipse cx="120" cy="265" rx="55" ry="36"/><ellipse cx="30" cy="275" rx="45" ry="30"/><ellipse cx="165" cy="275" rx="48" ry="30"/>
-  </g>
-  <g class="svg-cloud" style="animation-duration:9s; animation-delay:-5s; opacity:0.78;">
-    <ellipse cx="1380" cy="300" rx="75" ry="42"/><ellipse cx="1330" cy="285" rx="58" ry="38"/><ellipse cx="1420" cy="295" rx="50" ry="32"/>
-  </g>
-  <g class="svg-cloud" style="animation-duration:10s; animation-delay:-1s; opacity:0.70;">
-    <ellipse cx="720" cy="50" rx="100" ry="55"/><ellipse cx="790" cy="35" rx="70" ry="45"/><ellipse cx="650" cy="45" rx="65" ry="40"/><ellipse cx="840" cy="48" rx="60" ry="38"/>
-  </g>
-  <g class="svg-cloud" style="animation-duration:7.5s; animation-delay:-4s; opacity:0.72;">
-    <ellipse cx="100" cy="520" rx="85" ry="48"/><ellipse cx="160" cy="505" rx="65" ry="42"/><ellipse cx="55" cy="515" rx="55" ry="35"/><ellipse cx="210" cy="515" rx="55" ry="35"/>
-  </g>
-  <g class="svg-cloud" style="animation-duration:8.5s; animation-delay:-6s; opacity:0.73;">
-    <ellipse cx="1350" cy="550" rx="80" ry="45"/><ellipse cx="1290" cy="535" rx="60" ry="38"/><ellipse cx="1400" cy="542" rx="55" ry="35"/>
-  </g>
-  <g class="svg-cloud" style="animation-duration:11s; animation-delay:-8s; opacity:0.68;">
-    <ellipse cx="680" cy="780" rx="95" ry="52"/><ellipse cx="760" cy="765" rx="72" ry="46"/><ellipse cx="610" cy="775" rx="65" ry="40"/><ellipse cx="810" cy="775" rx="62" ry="38"/>
-  </g>
-  <g class="svg-cloud" style="animation-duration:5s; animation-delay:-2.5s; opacity:0.65;">
-    <ellipse cx="450" cy="150" rx="55" ry="32"/><ellipse cx="495" cy="140" rx="42" ry="28"/><ellipse cx="415" cy="146" rx="38" ry="25"/>
-  </g>
-  <g class="svg-cloud" style="animation-duration:6.5s; animation-delay:-7s; opacity:0.65;">
-    <ellipse cx="980" cy="400" rx="60" ry="34"/><ellipse cx="1030" cy="388" rx="45" ry="29"/><ellipse cx="940" cy="396" rx="40" ry="26"/>
-  </g>
-</svg>
+<canvas id="stars-canvas" style="position:fixed;inset:0;z-index:0;pointer-events:none;"></canvas>
 
 <!-- Floating decor -->
 
@@ -1400,7 +1325,14 @@ nav { background: rgba(253,246,240,0.85) !important; }
         <span class="contact-link-icon">📘</span>
         <div class="contact-link-text">
           <div class="label">Facebook Business Page</div>
-          <div class="name">Peggy Dessert</div>
+          <div class="name">Cherry BonBon</div>
+        </div>
+      </a>
+      <a href="https://www.facebook.com/profile.php?id=61569418790067" target="_blank" class="contact-link">
+        <span class="contact-link-icon">🎮</span>
+        <div class="contact-link-text">
+          <div class="label">Gaming Page</div>
+          <div class="name">Sims FreePlay</div>
         </div>
       </a>
       <a href="https://ko-fi.com/cherrybonbon555" target="_blank" class="contact-link">
@@ -1408,6 +1340,13 @@ nav { background: rgba(253,246,240,0.85) !important; }
         <div class="contact-link-text">
           <div class="label">Support & Payment</div>
           <div class="name">Ko-fi · Cherry BonBon</div>
+        </div>
+      </a>
+      <a href="https://paypal.me/blackcodeblackness" target="_blank" class="contact-link">
+        <span class="contact-link-icon">💙</span>
+        <div class="contact-link-text">
+          <div class="label">Payment</div>
+          <div class="name">PayPal · Morgann Folly</div>
         </div>
       </a>
     </div>
